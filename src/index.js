@@ -1,7 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
 import App from "./routes/App.jsx"
-/* import 'normalize.css' */
+import 'normalize.css'
 
-ReactDOM.render(<App/>,document.getElementById('rompecabezas'))
+if (module.hot) { //si el modulo en en caliente de server pide algo se acepta
+    module.hot.accept();
+}
+
+createRoot(document.querySelector('#rompecabezas')).render(<App />);
+
+
 

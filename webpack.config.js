@@ -30,7 +30,13 @@ module.exports = {
                 use: [{
                     loader: 'html-loader'
                 }]
-            }
+            },
+            {
+                test:/\.(css|scss)$/,
+                use:[
+                    "css-loader",
+                ]
+            },
         ]
     },
     plugins: [
@@ -44,6 +50,7 @@ module.exports = {
         },
         compress: true,
         port: 9000,
+        hot: true,//va a actualizar la pagina en caliente
     },
 
 
