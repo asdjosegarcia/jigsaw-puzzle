@@ -13,9 +13,10 @@ module.exports = {
     resolve: {
         // extensions: ['js', '.jsx'], //comentado por que aun no tenemos loaders para esto
         alias: {
-            '@components': path.resolve(__dirname, 'src/components/'),
+            '@components': path.resolve(__dirname, 'src/components'),
             '@styles':  path.resolve(__dirname,'src/styles'),
-            '@containers': path.resolve(__dirname,'src/containers')
+            '@containers': path.resolve(__dirname,'src/containers'),
+            '@img':path.resolve(__dirname,'src/img')
         }
     },
     module: {
@@ -42,6 +43,10 @@ module.exports = {
                     "sass-loader"
                 ]
             },
+            {
+                test:/\.(png|svg|jp(e*)g|gif)$/,
+                type:'asset'//asset viene con webpack, reemplazo a varios plugins y loaders de imagenes
+            }
         ]
     },
     plugins: [

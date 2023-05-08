@@ -4,8 +4,7 @@ import '@styles/StartButton.scss'
 const StartButton=()=>{
     return(
         <>
-        <button>start!</button>
-        <h1>hola</h1>
+        <button className="start-button">start!</button>
         </>
     )
 }
