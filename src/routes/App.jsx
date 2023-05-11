@@ -6,7 +6,7 @@ import 'normalize.css'
 
 const App=()=>{
    return(
-    <div className="app-background">
+    <div  className="app-background">
       <Jigsaw />
     </div>
    )

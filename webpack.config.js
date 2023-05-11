@@ -16,7 +16,8 @@ module.exports = {
             '@components': path.resolve(__dirname, 'src/components'),
             '@styles':  path.resolve(__dirname,'src/styles'),
             '@containers': path.resolve(__dirname,'src/containers'),
-            '@img':path.resolve(__dirname,'src/img')
+            '@img':path.resolve(__dirname,'src/img'),
+            '@sounds':path.resolve(__dirname,'src/sounds')
         }
     },
     module: {
@@ -44,9 +45,9 @@ module.exports = {
                 ]
             },
             {
-                test:/\.(png|svg|jp(e*)g|gif)$/,
+                test:/\.(png|svg|mp3|jp(e*)g|gif)$/,
                 type:'asset'//asset viene con webpack, reemplazo a varios plugins y loaders de imagenes
-            }
+            },
         ]
     },
     plugins: [
