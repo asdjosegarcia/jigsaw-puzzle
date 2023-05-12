@@ -69,6 +69,9 @@
 .piece-9{
     background-image: url('@img/pieces_img/piecesPenguin/9.jpg');
 }
+.win-inactive{
+    display: none;
+}
 .win-active{
     position: absolute;
     width: 100vw;

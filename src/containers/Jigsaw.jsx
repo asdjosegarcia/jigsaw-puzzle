@@ -20,8 +20,8 @@ const Jigsaw=()=>{
         }
         completeMap[0]=""
     })()
-    const [getJigsawMap,setJigsawMap]=useState(/* completeMap.sort((a, b) => 0.5 - Math.random()) */
-        completeMap
+    const [getJigsawMap,setJigsawMap]=useState(completeMap.sort((a, b) => 0.5 - Math.random())
+        // completeMap
         )
 
     const specialPositionRight=completeMap.filter((numero)=>{return(numero%mapWidth===0)})
