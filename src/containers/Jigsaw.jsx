@@ -6,27 +6,22 @@ import JigsawImgPreview from '@components/JigsawImgPreview.jsx'
 import '@styles/Jigsaw.scss'
 import sound from "@sounds/snow_slowed.mp3"
 
-const soundMove=new Audio(sound)
- const Jigsaw=()=>{
+const Jigsaw=()=>{
+    const soundMove=new Audio(sound)
+    const [getCompletedGame,setCompletedGame]=useState(false)
     const mapWidth=3;
-    const mapHeight=5;
+    const mapHeight=3;
     const completeMap=[1];
-    (function(){
+    (function(){//crea un array/mapa de numeros dependiendo de el alto y ancho seleccionado
         const totalSize=mapWidth*mapHeight;
         for (let i = 0; i < totalSize-1; i++) {
             completeMap.push(completeMap[completeMap.length-1]+1);
         }
+        completeMap[0]=""
     })()
     const [getJigsawMap,setJigsawMap]=useState(/* completeMap.sort((a, b) => 0.5 - Math.random()) */
         completeMap
-/*         [
-            "",2,3,
-            4,5,6,
-            7,8,9,
-            10,11,12
-        ] */
         )
-        getJigsawMap[getJigsawMap.findIndex((num)=>num==1)]=""//al parecer se puede modificar el el get sin el set.....
 
     const specialPositionRight=completeMap.filter((numero)=>{return(numero%mapWidth===0)})
     const specialPositionLeft=specialPositionRight.map((number)=>{return(number+1)})//agrega +1 a cada valor del specialPositionRight previamente filtrado
@@ -35,7 +30,7 @@ const soundMove=new Audio(sound)
         return(getJigsawMap.findIndex((position)=>position==="")+1)
     }
 
-    const remap=(quotesPositionfunc,blockPosition,specialPositionRight,specialPositionLeft)=>{
+    const remap=(quotesPositionfunc,blockPosition,specialPositionRight,specialPositionLeft)=>{//comprrueba si el movimiento es valido
         const quotesPosition=quotesPositionfunc
         switch (true){
             case (blockPosition==quotesPosition ):
@@ -57,7 +52,7 @@ const soundMove=new Audio(sound)
         }
     }
 
-    const movimiento=(quotesPosition,blockPosition)=>{
+    const movimiento=(quotesPosition,blockPosition)=>{//intercambia la posicion del bloque vacio por el bloque clickeado
             let newArray=[...getJigsawMap]
             newArray[blockPosition-1]=""
             newArray[quotesPosition-1]=getJigsawMap[blockPosition-1]
@@ -65,19 +60,23 @@ const soundMove=new Audio(sound)
             checkStatus(newArray)
         }
 
-    const checkStatus=(newArray)=>{
+    const checkStatus=(newArray)=>{//revisa si el mapa se completo
             const completeMapQuotes=[...completeMap]
-            completeMapQuotes[0]=""
-            const isEqual=JSON.stringify(newArray)===JSON.stringify(completeMapQuotes)
+            completeMapQuotes[0]=1
+            const isEqual=JSON.stringify(newArray)===JSON.stringify(completeMap)
             if(isEqual){
-                setTimeout(function(){alert('EZ MANCO')},1)//se utilizo setTime out por que el cartel salia antes de que se realize el movimiento en pantalla
+                setJigsawMap(   completeMapQuotes)
+                setCompletedGame(true)
+                setTimeout(function(){alert('EZ MANCO')},30)//se utilizo setTime out por que el cartel salia antes de que se visualize el movimiento final en pantalla
                 
             }
         }
 
     const movePosition=(blockPosition)=>{
-        soundMove.play()
-        remap(extractQuotesPosition(),blockPosition,specialPositionRight,specialPositionLeft)
+        if(!getCompletedGame){
+            soundMove.play()
+            remap(extractQuotesPosition(),blockPosition,specialPositionRight,specialPositionLeft)
+        }
     }
 
 
@@ -86,7 +85,7 @@ const soundMove=new Audio(sound)
       <JigsawTitle/>
         <JigsawImgPreview/>
         <div className="jigsaw-container">
-            {getJigsawMap.map((item, index, arr) =>{return( <div onClick={()=>{movePosition(index+1)}} key={index} className={`piece-${getJigsawMap[index]} pieces`}>{getJigsawMap[index]}</div> )})}
+            {getJigsawMap.map((item, index, arr) =>{return( <div onClick={()=>{movePosition(index+1)}} key={index} className={`piece-${getJigsawMap[index]} pieces border-${getCompletedGame?'inactive':'active'}`}>{/* {getJigsawMap[index]} */}</div> )})}
         </div>
     </div>
     )

@@ -1,11 +1,11 @@
 import React from "react";
-import attakOnTitanPreviewImg from '@img/attack-on-titan-img-preview.png'
+import penguinPreview from '@img/penguin-483X483.jpg'
 import "@styles/JigsawImgPreview.scss"
 
 const JigsawImgPreview=()=>{
     return(
     <>
-    <img src={attakOnTitanPreviewImg} className="jigsaw-img-preview"></img>
+    <img src={penguinPreview} className="jigsaw-img-preview"></img>
     </>
     )
 }

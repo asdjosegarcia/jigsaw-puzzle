@@ -4,7 +4,7 @@
 .jigsaw-background{
     grid-column: 2/3;
     grid-row: 1/3;
-    background-color: rgba(255, 255, 255, 0.377);
+    background-color: rgba(215, 244, 255, 0.377);
     width: 900px;
     height: 980px;
     margin-top: 5px;
@@ -19,22 +19,49 @@
 .jigsaw-container{
     grid-column: 2/5;
     grid-row: 4/5;
-    background-color: red;
+    // background-color: red;
     width: 800px;
     height: 800px;
     display: grid;
     grid-template-columns: repeat(3,auto);
-    grid-template-rows: repeat(4,auto);
+    grid-template-rows: repeat(3,auto);
 }
 .pieces{
-    border: 4px solid gray;
-    font-size:  100px;
+
+   background-size: contain;
+   background-repeat: no-repeat;
+   image-rendering: optimizeQuality;
+
+}
+.border-active{
+    border: 2px solid gray;
+}
+.piece-1{
+    background-image: url('@img/pieces_img/piecesPenguin/1.jpg');
 }
 .piece-2{
-    background-color: green;
+    background-image: url('@img/pieces_img/piecesPenguin/2.jpg');
 }
 .piece-3{
-    
+    background-image: url('@img/pieces_img/piecesPenguin/3.jpg');
+}
+.piece-4{
+    background-image: url('@img/pieces_img/piecesPenguin/4.jpg');
+}
+.piece-5{
+    background-image: url('@img/pieces_img/piecesPenguin/5.jpg');
+}
+.piece-6{
+    background-image: url('@img/pieces_img/piecesPenguin/6.jpg');
+}
+.piece-7{
+    background-image: url('@img/pieces_img/piecesPenguin/7.jpg');
+}
+.piece-8{
+    background-image: url('@img/pieces_img/piecesPenguin/8.jpg');
+}
+.piece-9{
+    background-image: url('@img/pieces_img/piecesPenguin/9.jpg');
 }
 
 
