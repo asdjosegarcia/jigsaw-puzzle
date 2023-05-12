@@ -5,6 +5,7 @@ import JigsawTitle from '@components/JigsawTitle.jsx'
 import JigsawImgPreview from '@components/JigsawImgPreview.jsx'
 import '@styles/Jigsaw.scss'
 import sound from "@sounds/snow_slowed.mp3"
+import Timer from "../components/Timer.jsx";
 
 const Jigsaw=()=>{
     const soundMove=new Audio(sound)
@@ -65,10 +66,9 @@ const Jigsaw=()=>{
             completeMapQuotes[0]=1
             const isEqual=JSON.stringify(newArray)===JSON.stringify(completeMap)
             if(isEqual){
-                setJigsawMap(   completeMapQuotes)
+                setJigsawMap(completeMapQuotes)
                 setCompletedGame(true)
-                setTimeout(function(){alert('EZ MANCO')},30)//se utilizo setTime out por que el cartel salia antes de que se visualize el movimiento final en pantalla
-                
+                // setTimeout(function(){alert('EZ MANCO')},100)//se utilizo setTime out por que el cartel salia antes de que se visualize el movimiento final en pantalla
             }
         }
 
@@ -79,15 +79,22 @@ const Jigsaw=()=>{
         }
     }
 
-
     return(
-    <div className="jigsaw-background"> 
-      <JigsawTitle/>
+        <>
+        <div className={`win-${getCompletedGame?'active':'inactive'}  `}>
+            <div>Completed!</div>
+        </div>
+        <div className="jigsaw-background"> 
+        <div className="timer">
+        <Timer />
+        </div>
+        <JigsawTitle/>
         <JigsawImgPreview/>
-        <div className="jigsaw-container">
+        <div className={`jigsaw-container border-${!getCompletedGame?'inactive':'active'}`}>
             {getJigsawMap.map((item, index, arr) =>{return( <div onClick={()=>{movePosition(index+1)}} key={index} className={`piece-${getJigsawMap[index]} pieces border-${getCompletedGame?'inactive':'active'}`}>{/* {getJigsawMap[index]} */}</div> )})}
         </div>
     </div>
+        </>
     )
 }
 export default Jigsaw;
