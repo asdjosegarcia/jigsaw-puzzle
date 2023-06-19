@@ -1,8 +1,12 @@
 {
   "homepage":"https://asdjosegarcia.github.io/jigsaw-puzzle",
+  "name":"jigsaw-puzzle",
+  "version":"0.1.0",
+  "private":"true",
 
   "scripts": {
     "start": "webpack serve --mode development",
+    "build":"webpack --mode production",
     "predeploy":"npm run build",
     "deploy":"gh-pages -d build"
   },

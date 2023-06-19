@@ -17,7 +17,9 @@ module.exports = {
             '@styles':  path.resolve(__dirname,'src/styles'),
             '@containers': path.resolve(__dirname,'src/containers'),
             '@img':path.resolve(__dirname,'src/img'),
-            '@sounds':path.resolve(__dirname,'src/sounds')
+            '@sounds':path.resolve(__dirname,'src/sounds'),
+            '@common':path.resolve(__dirname,'src/common'),
+            '@utils':path.resolve(__dirname,'src/utils')
         }
     },
     module: {
@@ -64,7 +66,7 @@ module.exports = {
             directory: path.join(__dirname, 'public'),
         },
         compress: true,//commprime la pagina
-        port: 9000,//va a salir en el puerto 9000
+        port: 3000,//va a salir en el puerto 9000
         hot: true,//va a actualizar la pagina en caliente
     },
 

@@ -1,0 +1,19 @@
+/////////////////////////////cosas que faltan
+completar el timer
+hacer mas exaclable el proyecto para los proximos mapas
+completar el completeStage
+un eslint y pretier urgente xd
+
+
+/////////////////////////////cosas opcionales que faltan
+animaciones
+
+
+
+
+
+
+/////////////////////////////posibles extras
+ranking online
+creador de mapas para el usuario
+seccionado de mapas segun genero anime,animales,naturaleza etc
