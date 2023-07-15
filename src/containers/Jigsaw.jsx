@@ -9,6 +9,7 @@ import JigsawImgPreview from '@components/JigsawImgPreview.jsx'
 import Timer from "../components/Timer.jsx";
 import CompletedStage from "../common/CompleteStage.jsx";
 import { jigsawMaps } from "../utils/maps.js";
+import { StartStage } from "../common/StartStage.jsx";
 
 let gameStarted=false
 const Jigsaw=()=>{
@@ -105,6 +106,7 @@ const Jigsaw=()=>{
         
         return(
         <>
+        <StartStage></StartStage>
         <div className={`win-${getCompletedGame?'active':'inactive'}  `}>{/* si getgame es true significa que el juego se completo y se renderizara  esto */}
             <CompletedStage/>
         </div>

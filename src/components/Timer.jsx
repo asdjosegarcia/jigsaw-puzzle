@@ -14,7 +14,7 @@ function Timer() {
  
   useEffect(()=>{//evita que se vuelva a ejecutar lo que esta dentro una vez renderizado
       const tenMsInterval = setInterval(() => {showTime()}, 10);
-      setTimeout(() => {clearInterval(tenMsInterval);}, 15000); //<------------con esto se para (en 15 seg)
+      // setTimeout(() => {clearInterval(tenMsInterval);}, 15000); //<------------con esto se para (en 15 seg)
   },[])
 
   function showTime() {
