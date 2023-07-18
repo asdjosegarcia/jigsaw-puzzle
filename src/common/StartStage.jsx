@@ -1,4 +1,4 @@
-import React,{useContext, useEffect} from "react";
+import React,{useContext} from "react";
 import { StartButton } from "@components/buttons/StartButton.jsx";
 import '@styles/common/StartStage.scss'
 import { variableContext } from "../context/context.jsx";
