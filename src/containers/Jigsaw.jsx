@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React,{useState,useContext} from "react";
+// import { useState } from "react";
 import '@styles/Jigsaw.scss'
 import moveSound from "@sounds/snow_slowed.mp3"
 import backgroundSound from "@sounds/background_sound.mp3"
@@ -10,9 +10,12 @@ import Timer from "../components/Timer.jsx";
 import CompletedStage from "../common/CompleteStage.jsx";
 import { jigsawMaps } from "../utils/maps.js";
 import { StartStage } from "../common/StartStage.jsx";
+import { variableContext } from "../context/context.jsx";
+
 
 let gameStarted=false
 const Jigsaw=()=>{
+    const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
     const soundMove=new Audio(moveSound)
     const soundBackground=new Audio(backgroundSound)
     const [getCompletedGame,setCompletedGame]=useState(false)//almacena el estado del juego, si se completo o no

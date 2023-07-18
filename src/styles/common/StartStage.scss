@@ -1,18 +1,28 @@
-.start-stage__background{
+.start-stage__background {
     display: grid;
     grid-template-areas: 
     'one two tree'
     'four five six'
     'seven eight nine';
     position: absolute;
-    width: calc(100vw - 20px);
+    width: 100vw;
     height: 70vh;
-    background-color: rgba(255, 255, 255, 0.527);
-    border: outset rgba(255, 255, 255, 0.24) 10px;
+    background-color: rgba(80, 97, 100, 0.616);
+    border-top: outset rgba(255, 255, 255, 0.808) 10px;
+    border-bottom: outset rgba(255, 255, 255, 0.808) 10px;
     margin-top: 25vh;
     z-index: 1;
     text-align: center;
+    
 }
+/* .start-stage__background{
+
+} */
 .start-stage__StartButton-container{
     grid-area: five;    
+    display:flex;                
+    align-items: center;
+    justify-content: center;
+    // flex-direction: column;
+    
 }

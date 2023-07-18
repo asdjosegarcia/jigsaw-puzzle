@@ -19,7 +19,7 @@ function Timer() {
 
   function showTime() {
     tenMs=tenMs+1
-    console.log(tenMs);
+    // console.log(tenMs);
     if (tenMs > 99) {
       tenMs=0
       seconds=seconds+1
@@ -34,7 +34,8 @@ function Timer() {
     setMinutes(minutes)
 
 
-    console.log(`${minutes}:${seconds < 10 ? "0" + seconds : seconds}:${tenMs < 10? "0" + tenMs: tenMs }`)}; //muestra el tiempo, si es menor a 10 agrega un 0
+    // console.log(`${minutes}:${seconds < 10 ? "0" + seconds : seconds}:${tenMs < 10? "0" + tenMs: tenMs }`)//muestra el tiempo, si es menor a 10 agrega un 0
+  }; 
 
 
   return (
