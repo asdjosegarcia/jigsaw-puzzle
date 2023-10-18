@@ -81,6 +81,7 @@ const Jigsaw=()=>{
             if(isEqual){
                 setJigsawMap(completeMapQuotes)
                 setCompletedGame(true)//establece set complete map como true, lo que le indica a react que renderize el ¡mapa superado estupida!
+                contexto.setGameStartedStatus(false)
                 // setTimeout(function(){alert('EZ MANCO')},1000)//se utilizo setTime out por que el cartel salia antes de que se visualize el movimiento final en pantalla
             }
         }

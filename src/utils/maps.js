@@ -7,9 +7,7 @@ const jigsawMaps={
         stopWatch:2,//0 disabled. 1 minutes:seconds:milliseconds.  2 minutes:seconds 
         imgBackground:'',
         imgPreview:'',
-
-
-    }
+    },
 
 
 }

@@ -1,4 +1,4 @@
-let simplifiedMilliseconds=0
+/* let simplifiedMilliseconds=0
 let seconds = 0
 let minutes = 0
 let hours = 0
@@ -18,6 +18,30 @@ function showTime() {
 }
 
 setTimeout(()=>{clearInterval(tenMsInterval)},15000) //<------------con esto se para (en 15 seg)
+ */
+let ms=0
+let seconds = 0
+let minutes = 0
+let hours = 0
+let timeStart=Date.now()//ms desde el 1 de enero de 1970 a las 0:00:00 hasta hoy
+function stopWatch(){
+     ms = Date.now() - timeStart;
+    if(ms>1000){
+        seconds++
+        seconds=Math.trunc(seconds)
+        if(seconds>59){
+            seconds=0
+            minutes++
+            
+        }
+    }
+    console.log('seconds',seconds,':','ms',ms,);
+
+    // console.log(currentTime)
+}
+const stopWatchInterval=setInterval(()=>{stopWatch()},10)
+setTimeout(()=>{clearInterval(stopWatchInterval)},10000)
+
 
 
 

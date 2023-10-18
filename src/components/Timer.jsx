@@ -2,6 +2,7 @@ import React, { useEffect,useContext } from "react";
 import { useState } from "react";
 import { variableContext } from "../context/context.jsx";
 
+// let tenMsInterval;
 
 function Timer() {
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
@@ -17,12 +18,17 @@ function Timer() {
   let minutes = 0;
   let hours = 0;
   
-  
+  let tenMsInterval
+  console.log('ejecutando esto');
   useEffect(()=>{//evita que se vuelva a ejecutar lo que esta dentro una vez renderizado
-    if(contexto.gameStartedStatus){
-    const tenMsInterval = setInterval(() => {showTime()}, 10);
-    }; 
-    // setTimeout(() => {clearInterval(tenMsInterval);}, 15000); //<------------con esto se para (en 15 seg)
+    
+    if(!contexto.gameStartedStatus){
+      clearInterval(tenMsInterval)
+    }else{
+    // clearInterval(tenMsInterval); //<------------con esto se para (en 15 seg)
+     tenMsInterval = setInterval(() => {showTime()}, 10);
+  }
+
   },[contexto.gameStartedStatus])
   
   function showTime() {
