@@ -1,4 +1,4 @@
-// import React from "react";
+// import React from "react"; 
 import '@styles/components/buttons/StartButton.scss'
 import React, { useContext } from "react";
 import { variableContext } from "../../context/context.jsx";
@@ -10,7 +10,7 @@ export function StartButton() {
   return (
     <>
     {/* <variableContext.provider value={{gameStarted}}> */}
-      <button onClick={()=>contexto.setGameStartedStatus(true)} className="start-button__button">
+      <button onClick={()=>{contexto.setGameStartedStatus(true),contexto.setTimerStatus(true)}} className="start-button__button">
         <p className="start-button__button-text">Start!</p>
       </button>
     {/* </variableContext.provider> */}
