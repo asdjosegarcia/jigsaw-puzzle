@@ -1,14 +1,12 @@
 {
-  "homepage":"https://asdjosegarcia.github.io/jigsaw-puzzle",
-  "name":"jigsaw-puzzle",
-  "version":"0.1.0",
-  "private":"true",
-
+  "name": "jigsaw-puzzle",
+  "version": "0.1.0",
+  "private": "true",
   "scripts": {
     "dev": "webpack serve --mode development",
-    "build":"rm -rf ./docs && webpack --mode production",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build"
+    "build": "rm -rf ./docs && webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@babel/core": "^7.21.4",
@@ -26,12 +24,10 @@
   },
   "devDependencies": {
     "css-loader": "^6.7.3",
-    "gh-pages": "^5.0.0",
     "mini-css-extract-plugin": "^2.7.5",
     "node-sass": "^8.0.0",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
-    "style-loader": "^3.3.2",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2",
     "webpack-dev-server": "^4.13.3"
