@@ -95,20 +95,12 @@
         height: 98vw;
         // margin-right:  20px;
     }
+
+}
+@media  (max-width: 700px) {
     .timer{
         grid-column: 2/4;
         grid-row: 2/3;
         align-self: end;
     }
 }
-/* @media  (max-width: 700px) {
-    .jigsaw-container{
-        width: 98vw;
-        height: 98vw;
-        // margin-right:  20px;
-        // background-color: red;
-    }
-    .jigsaw-background{
-    height: auto;
-    }
-} */
