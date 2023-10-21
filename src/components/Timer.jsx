@@ -54,7 +54,7 @@ function Timer() {
 
   return (
     <>
-      <div>{`${getMinutes}:${getSeconds < 10 ? "0" + getSeconds : getSeconds}:${getMs < 10 ? "0" + getMs : getMs}`}</div>
+      < >{`${getMinutes}:${getSeconds < 10 ? "0" + getSeconds : getSeconds}:${getMs < 10 ? "0" + getMs : getMs}`}</>{/* etiqueta fragment por que es la mas lijera */}
     </>
   );
 }

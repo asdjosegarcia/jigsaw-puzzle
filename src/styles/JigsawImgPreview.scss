@@ -3,6 +3,12 @@
     grid-row: 2/4;
     height: 150px;
     width: 150px;
-    grid-area: 0;
-    
+    justify-self:end;
+    margin-right: 2px;
 }
+/* @media  (max-width: 900px) {
+    .jigsaw-img-preview{
+    width: 70px;
+    height: 70px;
+    }
+} */

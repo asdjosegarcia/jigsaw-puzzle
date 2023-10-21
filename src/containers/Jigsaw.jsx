@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 // import { useState } from "react";
 import '@styles/Jigsaw.scss'
 import moveSound from "@sounds/snow_slowed.mp3"
-import backgroundSound from "@sounds/background_sound.mp3"
+// import backgroundSound from "@sounds/background_sound.mp3"
 // import StartButton from "@components/buttons/StartButton.jsx"; 
 import JigsawTitle from '@components/JigsawTitle.jsx'
 import JigsawImgPreview from '@components/JigsawImgPreview.jsx'
@@ -17,7 +17,7 @@ let gameStarted = false
 const Jigsaw = () => {
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
     const soundMove = new Audio(moveSound)
-    const soundBackground = new Audio(backgroundSound)
+    // const soundBackground = new Audio(backgroundSound)
     // const [contexto.getCompletedGame, contexto.setCompletedGame] = useState(false)//almacena el estado del juego, si se completo o no
     const mapWidth = jigsawMaps.lvl1.mapWhidt;
     const mapHeight = jigsawMaps.lvl1.mapHeight;
@@ -99,10 +99,8 @@ const Jigsaw = () => {
             remap(extractQuotesPosition(), blockPosition, specialPositionRight, specialPositionLeft)
         }
         if (!gameStarted) { //si la variable gameStared tiene algo ejecuta el if, esto tendia que mezclar la piezas pero por alguna razon no se puede
-            soundBackground.loop = true;//reproduccion del audio en infinito
-            soundBackground.play()
             gameStarted = true
-            contexto.setTimerStatus(true)
+            // contexto.setTimerStatus(true)    
 
             // contexto.setGameStartedStatus(true)
             /*                 for (let i = 0; i < 100; i++) {
