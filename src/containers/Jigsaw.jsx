@@ -15,17 +15,14 @@ import { variableContext } from "../context/context.jsx";
 
 let gameStarted = false
 const Jigsaw = () => {
+    // const minSize = (window.innerWidth > window.innerHeight) ? window.innerHeight : Window.innerWidth
+    // alert(minSize )
+
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
     const soundMove = new Audio(moveSound)
-    // const soundBackground = new Audio(backgroundSound)
-    // const [contexto.getCompletedGame, contexto.setCompletedGame] = useState(false)//almacena el estado del juego, si se completo o no
-    const mapWidth = jigsawMaps.lvl1.mapWhidt;
+    const mapWidth = jigsawMaps.lvl1.mapWhidth;
     const mapHeight = jigsawMaps.lvl1.mapHeight;
     const completeMap = [1];
-
-    useEffect(() => { //codigo que solo se ejecuta 1 vez
-
-    }, []);
 
     (function () {//crea un array/mapa de numeros dependiendo de el alto y ancho seleccionado
         const totalSize = mapWidth * mapHeight;
@@ -33,8 +30,10 @@ const Jigsaw = () => {
             completeMap.push(completeMap[completeMap.length - 1] + 1);
         }
         completeMap[0] = ""
-
     })()
+    const style = { gridTemplateColumns: "repeat(" + mapWidth + ",auto)" } //le enviamos la cantidad de grillas que tendra el juego para almacenar los cuadros
+
+
 
 
     const [getJigsawMap, setJigsawMap] = useState( // ([...completeMap]).sort((a, b) => 0.5 - Math.random())
@@ -89,7 +88,6 @@ const Jigsaw = () => {
             contexto.setCompletedGame(true)//establece set complete map como true, lo que le indica a react que renderize el ¡mapa superado estupida!
             contexto.setGameStartedStatus(false)
             contexto.setTimerStatus(false)
-            // setTimeout(function(){alert('EZ MANCO')},1000)//se utilizo setTime out por que el cartel salia antes de que se visualize el movimiento final en pantalla
         }
     }
 
@@ -100,21 +98,7 @@ const Jigsaw = () => {
         }
         if (!gameStarted) { //si la variable gameStared tiene algo ejecuta el if, esto tendia que mezclar la piezas pero por alguna razon no se puede
             gameStarted = true
-            // contexto.setTimerStatus(true)    
-
-            // contexto.setGameStartedStatus(true)
-            /*                 for (let i = 0; i < 100; i++) {
-                                const randomPosition=Math.ceil(Math.random()*9)
-                                console.log('movimiento naranja',randomPosition);
-                                
-                                setTimeout(movePosition(randomPosition),500)
-                               
-                            } */
         }
-        /*             console.log('getMap',getJigsawMap);
-                    console.log('completeM',completeMap); */
-        /*             if(!gameStarted){
-                    } */
     }
 
 
@@ -130,7 +114,7 @@ const Jigsaw = () => {
                 </div>
                 <JigsawTitle />
                 <JigsawImgPreview />
-                <div className={`jigsaw-container border-${!contexto.getCompletedGame ? 'inactive' : 'active'}`}>
+                <div style={style} className={`jigsaw-container border-${!contexto.getCompletedGame ? 'inactive' : 'active'}`}>
                     {getJigsawMap.map((item, index, arr) => { return (<div onClick={() => { movePosition(index + 1) }} key={index} className={`piece-${getJigsawMap[index]} pieces border-${contexto.getCompletedGame ? 'inactive' : 'active'}`}>{/* {getJigsawMap[index]} */}</div>) })}
                 </div>
             </div>
