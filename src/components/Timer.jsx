@@ -45,7 +45,6 @@ function Timer() {
 
     if (contexto.getTimerStatus) {
       tenMsInterval = setInterval(() => { showTime() }, 10);//si el juego inicio ejecuta la funcion cada 10 ms
-      console.log('inicia el cronometrooooooo')
     } 
     return (()=>{clearInterval(tenMsInterval)});//si no retornamos la funcion del useEfect el cronometro no para
 

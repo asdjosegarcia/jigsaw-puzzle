@@ -8,7 +8,7 @@ import JigsawTitle from '@components/JigsawTitle.jsx'
 import JigsawImgPreview from '@components/JigsawImgPreview.jsx'
 import Timer from "../components/Timer.jsx";
 import CompletedStage from "../common/CompleteStage.jsx";
-import { jigsawMaps } from "../utils/maps.js";
+import { jigsawMaps } from "../utils/maps.jsx";
 import { StartStage } from "../common/StartStage.jsx";
 import { variableContext } from "../context/context.jsx";
 
