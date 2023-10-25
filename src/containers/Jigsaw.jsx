@@ -19,7 +19,7 @@ const Jigsaw = () => {
     const mapHeight = jigsawMaps.lvl1.mapHeight;
     const completeMap = [1];
     const blockStyle={};//envia los background de los bloques
-    let newArray;
+    // let newArray;
     // let onlyExecute=false;
 
     (function () {//funcion autoejecutable
@@ -45,13 +45,15 @@ const Jigsaw = () => {
     )
     console.log('getMap '+getJigsawMap)
     const blockStyleGenerate=()=>{
-        getJigsawMap.map((position,index)=>{
-            blockStyle[index]={backgroundImage:`url(${jigsawMaps.lvl1.imgblocks[position-1]})`} //creamos un claves backgroundImg con el valor de cada imagen    
+        getJigsawMap.map((positionMap,index)=>{//positionMap es valor del elemnto actual de getJigsawMap, index es la piscion del elemnto actual
+            if(!positionMap==""){ //si position no es ""
+                blockStyle[index]={backgroundImage:`url(${jigsawMaps.lvl1.imgblocks[positionMap]})`} //creamos un claves backgroundImg con el valor de cada imagen    
+            }else{//si position es "" cargamos un elemento vacio a style
+                blockStyle[index]={}
+            }
 
         })
-
-
-        console.log(blockStyle)
+        // console.log(blockStyle)
 
     }
     blockStyleGenerate()
@@ -87,13 +89,11 @@ const Jigsaw = () => {
     }
 
     const movimiento = (quotesPosition, blockPosition) => {//intercambia la posicion del bloque vacio por el bloque clickeado
-        newArray = [...getJigsawMap]
+        let newArray = [...getJigsawMap]
         newArray[blockPosition - 1] = ""
         newArray[quotesPosition - 1] = getJigsawMap[blockPosition - 1]
         setJigsawMap(newArray)
         checkStatus(newArray)
-        // blockStyleGenerate()
-        // console.log('newArray'+newArray)
     }
 
     const checkStatus = (newArray) => {//revisa si el mapa se completo

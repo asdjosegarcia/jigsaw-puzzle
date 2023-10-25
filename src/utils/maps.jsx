@@ -9,7 +9,7 @@ import bkImg6 from '@img/pieces_img/lvl1/6.jpg'
 import bkImg7 from '@img/pieces_img/lvl1/7.jpg'
 import bkImg8 from '@img/pieces_img/lvl1/8.jpg'
 import bkImg9 from '@img/pieces_img/lvl1/9.jpg'
-
+const bkImg0="";
 
 export const jigsawMaps={
     lvl1:{
@@ -20,7 +20,9 @@ export const jigsawMaps={
         stopWatch:2,//0 disabled. 1 minutes:seconds:milliseconds.  2 minutes:seconds 
         imgBackgroundUrl:bgImg1,//imagen de fondo
         imgPreview:prevImg,//vista en miniatura del mapa
-        imgblocks:[            bkImg1,
+        imgblocks:[            
+            bkImg0,
+            bkImg1,
             bkImg2,
             bkImg3,
             bkImg4,
