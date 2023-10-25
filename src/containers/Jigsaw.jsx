@@ -1,9 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
-// import { useState } from "react";
 import '@styles/Jigsaw.scss'
 import moveSound from "@sounds/snow_slowed.mp3"
-// import backgroundSound from "@sounds/background_sound.mp3"
-// import StartButton from "@components/buttons/StartButton.jsx"; 
 import JigsawTitle from '@components/JigsawTitle.jsx'
 import JigsawImgPreview from '@components/JigsawImgPreview.jsx'
 import Timer from "../components/Timer.jsx";
@@ -15,31 +12,49 @@ import { variableContext } from "../context/context.jsx";
 
 let gameStarted = false
 const Jigsaw = () => {
-    // const minSize = (window.innerWidth > window.innerHeight) ? window.innerHeight : Window.innerWidth
-    // alert(minSize )
-
+    
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
     const soundMove = new Audio(moveSound)
     const mapWidth = jigsawMaps.lvl1.mapWhidth;
     const mapHeight = jigsawMaps.lvl1.mapHeight;
     const completeMap = [1];
+    const blockStyle={};//envia los background de los bloques
+    let newArray;
+    // let onlyExecute=false;
 
-    (function () {//crea un array/mapa de numeros dependiendo de el alto y ancho seleccionado
-        const totalSize = mapWidth * mapHeight;
-        for (let i = 0; i < totalSize - 1; i++) {
-            completeMap.push(completeMap[completeMap.length - 1] + 1);
+    (function () {//funcion autoejecutable
+            let totalSize;//cantidad de bloques que va a tener el nivel/mapa
+            const mapGenerate=()=>{//crea un array/mapa de numeros dependiendo de el alto y ancho seleccionado
+                 totalSize = mapWidth * mapHeight;
+                for (let i = 0; i < totalSize - 1; i++) {
+                    completeMap.push(completeMap[completeMap.length - 1] + 1);
+                }
+                completeMap[0] = ""
+            }
+            mapGenerate()
         }
-        completeMap[0] = ""
-    })()
+    )()
     const style = { gridTemplateColumns: "repeat(" + mapWidth + ",auto)" } //le enviamos la cantidad de grillas que tendra el juego para almacenar los cuadros
+    
 
 
 
-
-    const [getJigsawMap, setJigsawMap] = useState( // ([...completeMap]).sort((a, b) => 0.5 - Math.random())
+    const [getJigsawMap, setJigsawMap] = useState( // ([...completeMap]).sort((a, b) =>   0.5 - Math.random())
         //extrae los valores de complete map y los mezcla de forma aleatoria
         [...completeMap],
     )
+    console.log('getMap '+getJigsawMap)
+    const blockStyleGenerate=()=>{
+        getJigsawMap.map((position,index)=>{
+            blockStyle[index]={backgroundImage:`url(${jigsawMaps.lvl1.imgblocks[position-1]})`} //creamos un claves backgroundImg con el valor de cada imagen    
+
+        })
+
+
+        console.log(blockStyle)
+
+    }
+    blockStyleGenerate()
 
 
     const specialPositionRight = completeMap.filter((numero) => { return (numero % mapWidth === 0) })
@@ -72,11 +87,13 @@ const Jigsaw = () => {
     }
 
     const movimiento = (quotesPosition, blockPosition) => {//intercambia la posicion del bloque vacio por el bloque clickeado
-        let newArray = [...getJigsawMap]
+        newArray = [...getJigsawMap]
         newArray[blockPosition - 1] = ""
         newArray[quotesPosition - 1] = getJigsawMap[blockPosition - 1]
         setJigsawMap(newArray)
         checkStatus(newArray)
+        // blockStyleGenerate()
+        // console.log('newArray'+newArray)
     }
 
     const checkStatus = (newArray) => {//revisa si el mapa se completo
@@ -104,7 +121,7 @@ const Jigsaw = () => {
 
     return (
         <>
-            <StartStage></StartStage>
+            <StartStage></StartStage>{/* muestra el proximamente menu, alctual boton dle juego */}
             <div className={`win-${contexto.getCompletedGame ? 'active' : 'inactive'}  `}>{/* si getgame es true significa que el juego se completo y se renderizara  esto */}
                 <CompletedStage />
             </div>
@@ -112,10 +129,10 @@ const Jigsaw = () => {
                 <div className="timer">
                     <Timer />
                 </div>
-                <JigsawTitle />
+                <JigsawTitle />           
                 <JigsawImgPreview />
                 <div style={style} className={`jigsaw-container border-${!contexto.getCompletedGame ? 'inactive' : 'active'}`}>
-                    {getJigsawMap.map((item, index, arr) => { return (<div onClick={() => { movePosition(index + 1) }} key={index} className={`piece-${getJigsawMap[index]} pieces border-${contexto.getCompletedGame ? 'inactive' : 'active'}`}>{/* {getJigsawMap[index]} */}</div>) })}
+                    {getJigsawMap.map((item, index, arr) => { return (<div onClick={() => { movePosition(index + 1) }} style={blockStyle[index]} key={index} className={/* piece-${getJigsawMap[index]}  */`pieces border-${contexto.getCompletedGame ? 'inactive' : 'active'}`}>{/* {getJigsawMap[index]} */}</div>) })}
                 </div>
             </div>
         </>

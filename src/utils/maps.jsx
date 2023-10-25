@@ -20,17 +20,15 @@ export const jigsawMaps={
         stopWatch:2,//0 disabled. 1 minutes:seconds:milliseconds.  2 minutes:seconds 
         imgBackgroundUrl:bgImg1,//imagen de fondo
         imgPreview:prevImg,//vista en miniatura del mapa
-        imgblocks:{
-            1:bkImg1,
-            2:bkImg2,
-            3:bkImg3,
-            4:bkImg4,
-            5:bkImg5,
-            6:bkImg6,
-            7:bkImg7,
-            8:bkImg8,
-            9:bkImg9,
-        }
+        imgblocks:[            bkImg1,
+            bkImg2,
+            bkImg3,
+            bkImg4,
+            bkImg5,
+            bkImg6,
+            bkImg7,
+            bkImg8,
+            bkImg9,]
     },
     lvl2:{
         mapWhidth:4,

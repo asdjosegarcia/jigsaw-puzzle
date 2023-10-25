@@ -1,49 +1,34 @@
-/* let simplifiedMilliseconds=0
-let seconds = 0
-let minutes = 0
-let hours = 0
+/* const miObjeto = {};
 
-const tenMsInterval=setInterval(()=>{showTime()},10)
-
-function showTime() {
-    simplifiedMilliseconds=simplifiedMilliseconds + 1
-    if (simplifiedMilliseconds > 99) {
-        simplifiedMilliseconds = 0
-        seconds = seconds +1
-    } if (seconds >59) { //los segundos solo llegan a 60
-        seconds = 0
-        minutes = minutes + 1
-    }
-    console.log(`${minutes}:${(seconds<10)?'0'+seconds:seconds}:${(simplifiedMilliseconds<10)?'0'+simplifiedMilliseconds:simplifiedMilliseconds}`);//muestra el tiempo, si es menor a 10 agrega un 0
+for (let i = 0; i < 5; i++) {
+  const clave = `clave${i}`;
+  const valor = `valor${i}`;
+  miObjeto[clave] = valor;
 }
 
-setTimeout(()=>{clearInterval(tenMsInterval)},15000) //<------------con esto se para (en 15 seg)
+console.log(miObjeto);
  */
-let ms=0
-let seconds = 0
-let minutes = 0
-let hours = 0
-let timeStart=Date.now()//ms desde el 1 de enero de 1970 a las 0:00:00 hasta hoy
-function stopWatch(){
-     ms = Date.now() - timeStart;
-    if(ms>1000){
-        seconds++
-        seconds=Math.trunc(seconds)
-        if(seconds>59){
-            seconds=0
-            minutes++
-            
-        }
-    }
-    console.log('seconds',seconds,':','ms',ms,);
 
-    // console.log(currentTime)
+/* 
+const miObjeto = {};
+
+miObjeto.clave2 = {
+  claveInterior: 'valorInterior',
+};
+
+console.log(miObjeto);
+ */
+/* 
+const blockStyle = {};
+for (let i = 0; i < 9; i++) {
+    const key = `backgoundImage`
+    console.log(key)
+    blockStyle[i] = { backgroundImage: `url(${[i]})` } //creamos un claves backgroundImg con el valor de cada imagen    
+    // blockStyle.push(`backgoundImage:url(${jigsawMaps.lvl1.imgblocks[i]})`)
 }
-const stopWatchInterval=setInterval(()=>{stopWatch()},10)
-setTimeout(()=>{clearInterval(stopWatchInterval)},10000)
-
-
-
-
-
-
+console.log(blockStyle)
+ */
+//getjisawmap[index] //recorre el mapa creando una clase para cada div
+//cada case creada ya tiene la imagen lista
+//entonces tengo que crear un objeto que ordene las imagenes del mismo modo que
+//el getjigsawMap para luego asignarlas como estilos en cada div desde el objeto blocksStyles
