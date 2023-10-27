@@ -1,4 +1,5 @@
 // import React from "react"; 
+import '@styles/components/buttons/GeneralButtonsStyles.scss'
 import '@styles/components/buttons/StartButton.scss'
 import React, { useContext } from "react";
 import { variableContext } from "../../context/context.jsx";
@@ -15,8 +16,8 @@ export function StartButton(props) {
   }
   return (
     <>
-      <button style={props.styleProp} onClick={()=>{StartButtonClicked()}} className="start-button__button">
-        <p className="start-button__button-text">Start!</p>
+      <button style={props.styleProp} onClick={()=>{StartButtonClicked()}} className="general-button start-button__button">
+        <p className="genral-button__button-text start-button__button-text">Start!</p>
       </button>
     </>
   );

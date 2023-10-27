@@ -16,7 +16,7 @@ export const jigsawMaps = {
         mapWhidth: 3,//ancho de mapa
         mapHeight: 3,//alto
         limitTime: false, //tiempo limite
-        movimentLimit: false, //limite de movimientos
+        movementLimit: false, //limite de movimientos
         stopWatch: 2,//0 disabled. 1 minutes:seconds:milliseconds.  2 minutes:seconds 
         imgBackgroundUrl: bgImg1,//imagen de fondo
         imgPreview: prevImg,//vista en miniatura del mapa
@@ -31,6 +31,8 @@ export const jigsawMaps = {
             bkImg7,
             bkImg8,
             bkImg9,],
+        backgroundSound:'',
+        movementSound:'',
         finishItems: {
             finishTitle:'YOU WIN',
             finishMessage: 'Este es el mensaje de finalizacion',
@@ -42,7 +44,7 @@ export const jigsawMaps = {
         mapWhidth: 4,
         mapHeight: 4,
         limitTime: false,
-        movimentLimit: false,
+        movementLimit: false,
         stopWatch: 2,//0 disabled. 1 minutes:seconds:milliseconds.  2 minutes:seconds 
         imgBackground: '',
         imgPreview: '',

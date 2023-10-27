@@ -3,6 +3,7 @@ import { StartButton } from "@components/buttons/StartButton.jsx";
 import '@styles/common/StartStage.scss'
 import { variableContext } from "../context/context.jsx";
 import NextButton from "../components/buttons/NextButton.jsx";
+import RetryButton from "../components/buttons/RetryButton.jsx"
 
 
 export function StartStage() {
@@ -17,6 +18,12 @@ export function StartStage() {
         gridRow: '3/3',
         justifySelf:'start', 
     }
+    const retryButtonStyle={
+        gridColumn: '1/2',
+        gridRow: '3/3',
+        justifySelf:'end', 
+        // backgroundColor:'yellow'
+    }
 
 
     return (
@@ -26,6 +33,7 @@ export function StartStage() {
                     <div className="start-stage__container">
                         <StartButton styleProp={startButtonStyle} />
                         <NextButton styleProp={nextButtonStyle} className="start-stage__NextButton" />
+                        <RetryButton styleProp={retryButtonStyle} className="start-stage__RetryButton" />
                     </div>
 
                 </div>

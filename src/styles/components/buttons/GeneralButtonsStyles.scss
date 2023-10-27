@@ -1,0 +1,17 @@
+.general-button {
+    width: 15rem;
+    height: 5rem;
+    border-radius: 10px;
+    margin: none;
+    user-select: none;
+    border: 5px solid rgba(202, 202, 202, 0.418);
+  }
+  .general-button :hover {
+    color: rgb(192, 238, 238);
+  }
+  .genral-button__button-text {
+    font-size: 40px;
+    margin: 0;
+    text-align: center;
+  }
+  
