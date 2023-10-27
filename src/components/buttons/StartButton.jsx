@@ -3,7 +3,7 @@ import '@styles/components/buttons/StartButton.scss'
 import React, { useContext } from "react";
 import { variableContext } from "../../context/context.jsx";
 
-export function StartButton() {
+export function StartButton(props) {
   const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
   const StartButtonClicked=()=>{
     contexto.setTimerStatus(true)
@@ -15,11 +15,9 @@ export function StartButton() {
   }
   return (
     <>
-    {/* <variableContext.provider value={{gameStarted}}> */}
-      <button onClick={()=>{StartButtonClicked()}} className="start-button__button">
+      <button style={props.styleProp} onClick={()=>{StartButtonClicked()}} className="start-button__button">
         <p className="start-button__button-text">Start!</p>
       </button>
-    {/* </variableContext.provider> */}
     </>
   );
 }

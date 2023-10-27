@@ -12,30 +12,30 @@ import { variableContext } from "../context/context.jsx";
 
 let gameStarted = false
 const Jigsaw = () => {
-    
+
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
     const soundMove = new Audio(moveSound)
     const mapWidth = jigsawMaps.lvl1.mapWhidth;
     const mapHeight = jigsawMaps.lvl1.mapHeight;
     const completeMap = [1];
-    const blockStyle={};//envia los background de los bloques
+    const blockStyle = {};//envia los background de los bloques
     // let newArray;
     // let onlyExecute=false;
 
     (function () {//funcion autoejecutable
-            let totalSize;//cantidad de bloques que va a tener el nivel/mapa
-            const mapGenerate=()=>{//crea un array/mapa de numeros dependiendo de el alto y ancho seleccionado
-                 totalSize = mapWidth * mapHeight;
-                for (let i = 0; i < totalSize - 1; i++) {
-                    completeMap.push(completeMap[completeMap.length - 1] + 1);
-                }
-                completeMap[0] = ""
+        let totalSize;//cantidad de bloques que va a tener el nivel/mapa
+        const mapGenerate = () => {//crea un array/mapa de numeros dependiendo de el alto y ancho seleccionado
+            totalSize = mapWidth * mapHeight;
+            for (let i = 0; i < totalSize - 1; i++) {
+                completeMap.push(completeMap[completeMap.length - 1] + 1);
             }
-            mapGenerate()
+            completeMap[0] = ""
         }
+        mapGenerate()
+    }
     )()
     const style = { gridTemplateColumns: "repeat(" + mapWidth + ",auto)" } //le enviamos la cantidad de grillas que tendra el juego para almacenar los cuadros
-    
+
 
 
 
@@ -43,13 +43,13 @@ const Jigsaw = () => {
         //extrae los valores de complete map y los mezcla de forma aleatoria
         [...completeMap],
     )
-    console.log('getMap '+getJigsawMap)
-    const blockStyleGenerate=()=>{
-        getJigsawMap.map((positionMap,index)=>{//positionMap es valor del elemnto actual de getJigsawMap, index es la piscion del elemnto actual
-            if(!positionMap==""){ //si position no es ""
-                blockStyle[index]={backgroundImage:`url(${jigsawMaps.lvl1.imgblocks[positionMap]})`} //creamos un claves backgroundImg con el valor de cada imagen    
-            }else{//si position es "" cargamos un elemento vacio a style
-                blockStyle[index]={}
+    console.log('getMap ' + getJigsawMap)
+    const blockStyleGenerate = () => {
+        getJigsawMap.map((positionMap, index) => {//positionMap es valor del elemnto actual de getJigsawMap, index es la piscion del elemnto actual
+            if (!positionMap == "") { //si position no es ""
+                blockStyle[index] = { backgroundImage: `url(${jigsawMaps.lvl1.imgblocks[positionMap]})` } //creamos un claves backgroundImg con el valor de cada imagen    
+            } else {//si position es "" cargamos un elemento vacio a style
+                blockStyle[index] = {}
             }
 
         })
@@ -121,15 +121,15 @@ const Jigsaw = () => {
 
     return (
         <>
-            <StartStage></StartStage>{/* muestra el proximamente menu, alctual boton dle juego */}
+            <StartStage />{/* muestra el proximamente menu, alctual boton dle juego */}
             <div className={`win-${contexto.getCompletedGame ? 'active' : 'inactive'}  `}>{/* si getgame es true significa que el juego se completo y se renderizara  esto */}
-                <CompletedStage />
+                {/* <CompletedStage /> */}
             </div>
             <div className="jigsaw-background">
                 <div className="timer">
                     <Timer />
                 </div>
-                <JigsawTitle />           
+                <JigsawTitle />
                 <JigsawImgPreview />
                 <div style={style} className={`jigsaw-container border-${!contexto.getCompletedGame ? 'inactive' : 'active'}`}>
                     {getJigsawMap.map((item, index, arr) => { return (<div onClick={() => { movePosition(index + 1) }} style={blockStyle[index]} key={index} className={/* piece-${getJigsawMap[index]}  */`pieces border-${contexto.getCompletedGame ? 'inactive' : 'active'}`}>{/* {getJigsawMap[index]} */}</div>) })}

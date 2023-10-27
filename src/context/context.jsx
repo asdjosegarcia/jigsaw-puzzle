@@ -10,6 +10,7 @@ export function FuncionProvider({children}){//creamos la funcion que encapsulara
     const [getCompletedGame, setCompletedGame] = useState(false)//establece el juego como completado
     const [getTimerStatus,setTimerStatus]=useState(false)//temporizador
     const soundBackground = new Audio(backgroundSound);
+    const [getLevel,setLevel]=useState(1)
 
       
 

@@ -4,14 +4,13 @@
 .timer{
     grid-column: 2/3;
     grid-row: 3/3;
-    // background-color: red;
     font-size: 4rem;
 }
 .jigsaw-background{
     margin-top: 3px;
     grid-column: 2/3;
     grid-row: 1/3;
-    background-color: rgba(215, 244, 255, 0.377);
+    background-color: /* rgba(215, 244, 255, 0.377) */ rgba(0, 39, 65, 0.38);
     width: 900px;
     height: 980px;
     display: grid;
@@ -19,6 +18,7 @@
     grid-template-rows: auto auto auto auto auto;
     justify-content: center;
     border-radius: 5px;
+    color: aliceblue;
 }
 .jigsaw-container{
     grid-column: 2/5;
@@ -28,8 +28,6 @@
     width: 800px;
     height: 800px;
     display: grid;
-    // grid-template-columns: repeat(4,auto);
-    // grid-template-rows: repeat(3,auto);
     box-shadow: 10px 10px 10px  black inset;
 }
 /* .jigsaw-container{
@@ -43,7 +41,7 @@
 
 }
 .border-active{
-    border: 2px solid rgba(255, 255, 255, 0.61);
+    border: 2px solid /* rgba(255, 255, 255, 0.61) */ rgba(39, 40, 41, 0.253);
 }
 /* .piece-1{
     background-image: url('@img/pieces_img/piecesPenguin/1.jpg');//https://splitter.imageonline.co/es/
@@ -68,10 +66,11 @@
 }
 .piece-8{
     background-image: url('@img/pieces_img/piecesPenguin/8.jpg');
-}*/
 .piece-9{
     background-image: url('@img/pieces_img/piecesPenguin/9.jpg');
 } 
+}*/
+
 .win-inactive{
     display: none;
 }
