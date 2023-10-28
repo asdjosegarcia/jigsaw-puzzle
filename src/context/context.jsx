@@ -10,7 +10,7 @@ export function FuncionProvider({children}){//creamos la funcion que encapsulara
     const [getCompletedGame, setCompletedGame] = useState(false)//establece el juego como completado
     const [getTimerStatus,setTimerStatus]=useState(false)//temporizador
     const soundBackground = new Audio(backgroundSound);
-    const [getLevel,setLevel]=useState(1)
+    const [getLevel,setLevel]=useState('lvl1')
 
       
 
@@ -20,7 +20,8 @@ export function FuncionProvider({children}){//creamos la funcion que encapsulara
             gameStartedStatus,setGameStartedStatus,
             getCompletedGame,setCompletedGame,
             getTimerStatus,setTimerStatus,
-            soundBackground
+            soundBackground,
+            getLevel,setLevel,
             }}>{/* value almacena lo que queremos entregar a el resto de la app */}
             {children} {/* un children por que aqui entrar el elemento que encapsulemos */}
         </variableContext.Provider>

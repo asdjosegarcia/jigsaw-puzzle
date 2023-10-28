@@ -13,6 +13,7 @@ export function StartButton(props) {
       contexto.soundBackground.loop = true;//reproduccion del audio en infinito
       contexto.soundBackground.play()
     }
+    // contexto.setCompletedGame(false)
   }
   return (
     <>

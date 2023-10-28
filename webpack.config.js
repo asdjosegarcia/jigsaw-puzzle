@@ -19,7 +19,8 @@ module.exports = {
             '@img':path.resolve(__dirname,'src/img'),
             '@sounds':path.resolve(__dirname,'src/sounds'),
             '@common':path.resolve(__dirname,'src/common'),
-            '@utils':path.resolve(__dirname,'src/utils')
+            '@utils':path.resolve(__dirname,'src/utils'),
+            '@context':path.resolve(__dirname,'src/context/'),
         }
     },
     module: {
