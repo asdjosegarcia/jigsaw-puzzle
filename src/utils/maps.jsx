@@ -1,7 +1,7 @@
 //general
 const bkImg0 = "";
 //lvl1
-import bgImg1 from '@img/background/lvl1.jpg'//importamos por que sino webpack no nos transgorma la url y nos da un 404
+import bgImglvl1 from '@img/background/lvl1.jpg'//importamos por que sino webpack no nos transgorma la url y nos da un 404
 import prevImglvl1 from '@img/preview/lvl1.jpg'
 import bkImg1lvl1 from '@img/pieces_img/lvl1/1.jpg'
 import bkImg2lvl1 from '@img/pieces_img/lvl1/2.jpg'
@@ -13,6 +13,7 @@ import bkImg7lvl1 from '@img/pieces_img/lvl1/7.jpg'
 import bkImg8lvl1 from '@img/pieces_img/lvl1/8.jpg'
 import bkImg9lvl1 from '@img/pieces_img/lvl1/9.jpg'
 //lvl2
+import bgImglvl2 from '@img/background/lvl2.jpg'
 import bkImg1lvl2 from '@img/pieces_img/lvl2/1.jpg'
 import bkImg2lvl2 from '@img/pieces_img/lvl2/2.jpg'
 import bkImg3lvl2 from '@img/pieces_img/lvl2/3.jpg'
@@ -32,7 +33,7 @@ export const jigsawMaps = {
         limitTime: false, //tiempo limite
         movementLimit: false, //limite de movimientos
         stopWatch: 2,//0 disabled. 1 minutes:seconds:milliseconds.  2 minutes:seconds 
-        imgBackgroundUrl: bgImg1,//imagen de fondo
+        imgBackgroundUrl: bgImglvl1,//imagen de fondo
         imgPreview: prevImglvl1,//vista en miniatura del mapa
         imgblocks: [
             bkImg0,
@@ -60,7 +61,7 @@ export const jigsawMaps = {
         limitTime: false, //tiempo limite
         movementLimit: false, //limite de movimientos
         stopWatch: 2,//0 disabled. 1 minutes:seconds:milliseconds.  2 minutes:seconds 
-        imgBackgroundUrl: bgImg1,//imagen de fondo
+        imgBackgroundUrl: bgImglvl2,//imagen de fondo
         imgPreview: prevImglvl2,//vista en miniatura del mapa
         imgblocks: [
             bkImg1lvl2,

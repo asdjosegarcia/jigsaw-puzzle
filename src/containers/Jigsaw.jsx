@@ -43,7 +43,7 @@ const Jigsaw = () => {
         //extrae los valores de complete map y los mezcla de forma aleatoria
         [...completeMap],
     )
-    console.log('getMap ' + getJigsawMap)
+    // console.log('getMap ' + getJigsawMap)
     const blockStyleGenerate = () => {
         getJigsawMap.map((positionMap, index) => {//positionMap es valor del elemnto actual de getJigsawMap, index es la piscion del elemnto actual
             if (!positionMap == "") { //si position no es ""
