@@ -12,59 +12,59 @@ import { variableContext } from "../context/context.jsx";
 
 let gameStarted = false
 const Jigsaw = () => {
-
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
     const soundMove = new Audio(moveSound)
     const mapWidth = jigsawMaps[contexto.getLevel].mapWhidth;
     const mapHeight = jigsawMaps[contexto.getLevel].mapHeight;
-    // console.log({mapHeight,mapWidth})
     const completeMap = [1];
     const blockStyle = {};//envia los background de los bloques
-    // let newArray;
-    // let onlyExecute=false;
+
+
+
+    useEffect(() => {//si pasamos a un nivel nuevo
+        setJigsawMap([...completeMap]) //acutaliza el mapa, de lo contrario se generan solo los cuadros del mapa anterior
+    }, [contexto.getLevel]);
 
     (function () {//funcion autoejecutable
         // let totalSize;//cantidad de bloques que va a tener el nivel/mapa 
         const mapGenerate = () => {//crea un array/mapa de numeros dependiendo de el alto y ancho seleccionado
-           let totalSize = mapWidth * mapHeight;//multilicacion del ancho y alto para sacar la cantidad de bloques
-            console.log('toltaSize',totalSize)
+            let totalSize = mapWidth * mapHeight;//multilicacion del ancho y alto para sacar la cantidad de bloques
+            // console.log('toltaSize',totalSize) //ok
             for (let i = 0; i < totalSize - 1; i++) {
-                completeMap.push(completeMap[completeMap.length - 1] +1);//genera un arrayS
-                console.log(completeMap) 
+                completeMap.push(completeMap[completeMap.length - 1] + 1);//genera un arrayS
+                console.log(completeMap)
             }
             completeMap[0] = ""
+            // console.log('completeMap',completeMap)//ok
         }
         mapGenerate()
     }
     )()
     const style = { gridTemplateColumns: "repeat(" + mapWidth + ",auto)" } //le enviamos la cantidad de grillas que tendra el juego para almacenar los cuadros
-    
-    
-    
-    
+
+
     const [getJigsawMap, setJigsawMap] = useState( // ([...completeMap]).sort((a, b) =>   0.5 - Math.random())
         //extrae los valores de complete map y los mezcla de forma aleatoria
         [...completeMap],
-        // console.log(completeMap)
-        )
-        // console.log('getMap ' + getJigsawMap)
-        const blockStyleGenerate = () => {
-            getJigsawMap.map((positionMap, index) => {//positionMap es valor del elemnto actual de getJigsawMap, index es la piscion del elemnto actual
-                if (!positionMap == "") { //si position no es ""
-                    blockStyle[index] = { backgroundImage: `url(${jigsawMaps[contexto.getLevel].imgblocks[positionMap]})` } //creamos un claves backgroundImg con el valor de cada imagen    
+    )
+    // console.log('getJig',getJigsawMap)
+    const blockStyleGenerate = () => {
+        getJigsawMap/* completeMap */.map((positionMap, index) => {//positionMap es valor del elemnto actual de getJigsawMap, index es la piscion del elemnto actual
+            if (!positionMap == "") { //si position no es ""
+                blockStyle[index] = { backgroundImage: `url(${jigsawMaps[contexto.getLevel].imgblocks[positionMap]})` } //creamos un claves backgroundImg con el valor de cada imagen    
             } else {//si position es "" cargamos un elemento vacio a style
                 blockStyle[index] = {}
-            }                                                                                                                                                                                                                                                                                                       
+            }
         })
         // console.log(blockStyle)
     }
     blockStyleGenerate()
-    
-    console.log('get',getJigsawMap)            
-    
+
+    console.log('get', getJigsawMap)
+
     const specialPositionRight = completeMap.filter((numero) => { return (numero % mapWidth === 0) })
     const specialPositionLeft = specialPositionRight.map((number) => { return (number + 1) })//agrega +1 a cada valor del specialPositionRight previamente filtrado
-    
+
     const extractQuotesPosition = () => { //extrae la posicion de ""
         return (getJigsawMap.findIndex((position) => position === "") + 1)
     }
@@ -95,7 +95,7 @@ const Jigsaw = () => {
         let newArray = [...getJigsawMap]
         newArray[blockPosition - 1] = ""
         newArray[quotesPosition - 1] = getJigsawMap[blockPosition - 1]
-        console.log('array antes de cargarse en el set',newArray)
+        console.log('array antes de cargarse en el set', newArray)
         setJigsawMap(newArray)
         checkStatus(newArray)
     }
