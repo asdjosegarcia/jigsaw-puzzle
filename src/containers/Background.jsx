@@ -12,8 +12,8 @@ const Background = ({children}) => {
     const style = {
         backgroundImage: `url(${img})`
     }
-    console.log(style)
-    console.log(contexto.getLevel)
+    // console.log(style)
+    // console.log(contexto.getLevel)
     return (
         <>
             <div style={style} className="app-background">

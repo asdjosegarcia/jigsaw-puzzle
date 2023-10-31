@@ -23,6 +23,14 @@ import bkImg6lvl2 from '@img/pieces_img/lvl2/6.jpg'
 import bkImg7lvl2 from '@img/pieces_img/lvl2/7.jpg'
 import bkImg8lvl2 from '@img/pieces_img/lvl2/8.jpg'
 import bkImg9lvl2 from '@img/pieces_img/lvl2/9.jpg'
+import bkImg10lvl2 from '@img/pieces_img/lvl2/10.jpg'
+import bkImg11lvl2 from '@img/pieces_img/lvl2/11.jpg'
+import bkImg12lvl2 from '@img/pieces_img/lvl2/12.jpg'
+import bkImg13lvl2 from '@img/pieces_img/lvl2/13.jpg'
+import bkImg14lvl2 from '@img/pieces_img/lvl2/14.jpg'
+import bkImg15lvl2 from '@img/pieces_img/lvl2/15.jpg'
+import bkImg16lvl2 from '@img/pieces_img/lvl2/16.jpg'
+
 import prevImglvl2 from '@img/preview/lvl2.jpg'
 
 
@@ -64,6 +72,7 @@ export const jigsawMaps = {
         imgBackgroundUrl: bgImglvl2,//imagen de fondo
         imgPreview: prevImglvl2,//vista en miniatura del mapa
         imgblocks: [
+            bkImg0,
             bkImg1lvl2,
             bkImg2lvl2,
             bkImg3lvl2,
@@ -73,6 +82,13 @@ export const jigsawMaps = {
             bkImg7lvl2,
             bkImg8lvl2,
             bkImg9lvl2,
+            bkImg10lvl2,
+            bkImg11lvl2,
+            bkImg12lvl2,
+            bkImg13lvl2,
+            bkImg14lvl2,
+            bkImg15lvl2,
+            bkImg16lvl2,
         ],
         backgroundSound:'',
         movementSound:'',
