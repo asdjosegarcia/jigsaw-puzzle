@@ -6,7 +6,7 @@ import { variableContext } from "@context/context.jsx";
 const NextButton = (prop) => {
     const contexto = useContext(variableContext)
     const levelUp = () => {
-        contexto.setLevel('lvl2');
+        contexto.setLevel(contexto.getLevel+1);
         
     }
 

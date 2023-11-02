@@ -130,7 +130,7 @@ const Jigsaw = () => {
             <div className={`win-${contexto.getCompletedGame ? 'active' : 'inactive'}  `}>{/* si getgame es true significa que el juego se completo y se renderizara  esto */}
                 {/* <CompletedStage /> */}
             </div>
-            <div className="jigsaw-background">
+            <div style={jigsawMaps[contexto.getLevel].frameBackgroundColor} className="jigsaw-background">
                 <div className="timer">
                     <Timer />
                 </div>
