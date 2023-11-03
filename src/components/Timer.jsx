@@ -16,24 +16,31 @@ function Timer() {
   const [getSeconds, setSeconds] = useState(Number)
   const [getMinutes, setMinutes] = useState(Number)
   const [getPause,setPause]= useState(false)
+  // const [getReset,setReset]=useState(false)
 
-  const  changePausevalue=()=>{
+  const  pauseClock=()=>{
     setPause(!getPause)
     // ()=>{clearInterval(tenMsInterval)}
   }
-
-  if( tenMs==undefined ){
-     tenMs =  0;
-     seconds = 0;
-     minutes = 0;
-     hours = 0;
-    //  tenMsInterval
+  const resetClock=()=>{
+    setClockToZero(true)
+    setPause(true)
   }
 
+  const setClockToZero=(reset)=>{
+    if( tenMs==undefined || reset  ){//si teMs es undefined declara todas las variables como 0 asi el +1 haga efecto
+       tenMs =  0;
+       seconds = 0;
+       minutes = 0;
+       hours = 0;
+       setMs(0)
+       setSeconds(0)
+       setMinutes(0)
+    }
+  }
+  setClockToZero()
+
   useEffect(() => { //evita que se vuelva a ejecutar lo que esta dentro una vez renderizado
-    
-
-
     function showTime() {//esta funcion calcula el tiempo que paso
       tenMs = tenMs + 1
       if (tenMs > 99) {
@@ -50,7 +57,7 @@ function Timer() {
       // console.log(`${minutes}:${seconds < 10 ? "0" + seconds : seconds}:${tenMs < 10? "0" + tenMs: tenMs }`)//muestra el tiempo, si es menor a 10 agrega un 0
     }
 
-    if (contexto.getTimerStatus && !getPause ) {
+    if (contexto.getTimerStatus && !getPause ) { 
       tenMsInterval = setInterval(() => { showTime() }, 10);//si el juego inicio ejecuta la funcion cada 10 ms      
     } 
     return (()=>{clearInterval(tenMsInterval)});//si no retornamos la funcion del useEfect el cronometro no para
@@ -60,8 +67,8 @@ function Timer() {
   return (
     <>
       < >{`${getMinutes}:${getSeconds < 10 ? "0" + getSeconds : getSeconds}:${getMs < 10 ? "0" + getMs : getMs}`}</>{/* etiqueta fragment por que es la mas lijera */}
-      <button onClick={()=>{changePausevalue()}}>Pause</button>
-      {/* <button onClick={()=>{changePausevalue()}}>Reset</button> */}
+      <button onClick={()=>{pauseClock()}}>Pause</button>
+      <button onClick={()=>{resetClock()}}>Reset</button>
     </>
   );
 }
