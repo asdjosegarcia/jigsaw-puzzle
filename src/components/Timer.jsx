@@ -68,6 +68,10 @@ function Timer() {
     return (()=>{clearInterval(tenMsInterval)});//si no retornamos la funcion del useEfect el cronometro no para
   }, [contexto.getTimerStatus,getPause])
 
+/*   if(){
+
+  } */
+
 
   return (
     <>

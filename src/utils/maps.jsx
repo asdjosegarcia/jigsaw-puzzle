@@ -42,6 +42,8 @@ import bkImg6lvl3 from '@img/pieces_img/lvl3/6.jpg'
 import bkImg7lvl3 from '@img/pieces_img/lvl3/7.jpg'
 import bkImg8lvl3 from '@img/pieces_img/lvl3/8.jpg'
 import bkImg9lvl3 from '@img/pieces_img/lvl3/9.jpg'
+import prevImglvl3 from '@img/preview/lvl3.jpg'
+
 
 
 export const jigsawMaps = {
@@ -119,7 +121,7 @@ export const jigsawMaps = {
         stopWatch: 2,//0 disabled. 1 minutes:seconds:milliseconds.  2 minutes:seconds 
         frameBackgroundColor:{backgroundColor:"rgba(0, 0, 0, 0.38)"}, 
         imgBackgroundUrl: bgImglvl3,//imagen de fondo
-        imgPreview: prevImglvl1,//vista en miniatura del mapa
+        imgPreview: prevImglvl3,//vista en miniatura del mapa
         imgblocks: [
             bkImg0,
             bkImg1lvl3,
@@ -140,6 +142,36 @@ export const jigsawMaps = {
             timeElapsed:true,
         },
     },
+/*     4: {
+        mapWhidth: 3,//ancho de mapa
+        mapHeight: 3,//alto
+        limitTime: false, //tiempo limite
+        movementLimit: false, //limite de movimientos
+        stopWatch: 2,//0 disabled. 1 minutes:seconds:milliseconds.  2 minutes:seconds 
+        frameBackgroundColor:{backgroundColor:"rgba(0, 0, 0, 0.38)"}, 
+        imgBackgroundUrl: bgImglvl3,//imagen de fondo
+        imgPreview: prevImglvl3,//vista en miniatura del mapa
+        imgblocks: [
+            bkImg0,
+            bkImg1lvl3,
+            bkImg2lvl3,
+            bkImg3lvl3,
+            bkImg4lvl3,
+            bkImg5lvl3,
+            bkImg6lvl3,
+            bkImg7lvl3,
+            bkImg8lvl3,
+            bkImg9lvl3,],
+        backgroundSound:'',
+        movementSound:'',
+        finishItems: {
+            finishTitle:'YOU WIN',
+            finishMessage: 'Este es el mensaje de finalizacion',
+            nextStageButton: true,
+            timeElapsed:true,
+        },
+    }, */
+
 
 }
 // console.log(jigsawMaps.lvl1);
