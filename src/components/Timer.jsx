@@ -7,7 +7,8 @@ let tenMs ;
 let seconds ;
 let minutes ;
 let hours ;
-let tenMsInterval
+let tenMsInterval;
+let valueClock;
 function Timer() {
   const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
 
@@ -16,19 +17,23 @@ function Timer() {
   const [getSeconds, setSeconds] = useState(Number)
   const [getMinutes, setMinutes] = useState(Number)
   const [getPause,setPause]= useState(false)
-  // const [getReset,setReset]=useState(false)
 
   const  pauseClock=()=>{
     setPause(!getPause)
-    // ()=>{clearInterval(tenMsInterval)}
   }
+
   const resetClock=()=>{
     setClockToZero(true)
     setPause(true)
   }
 
+  const saveValueClock=()=>{
+    valueClock=[minutes,seconds,tenMs]
+    console.log('valueClock',valueClock)
+  }
+
   const setClockToZero=(reset)=>{
-    if( tenMs==undefined || reset  ){//si teMs es undefined declara todas las variables como 0 asi el +1 haga efecto
+    if( tenMs==undefined || reset  ){//si tenMs es undefined declara todas las variables como 0 asi el +1 haga efecto
        tenMs =  0;
        seconds = 0;
        minutes = 0;
@@ -69,6 +74,7 @@ function Timer() {
       < >{`${getMinutes}:${getSeconds < 10 ? "0" + getSeconds : getSeconds}:${getMs < 10 ? "0" + getMs : getMs}`}</>{/* etiqueta fragment por que es la mas lijera */}
       <button onClick={()=>{pauseClock()}}>Pause</button>
       <button onClick={()=>{resetClock()}}>Reset</button>
+      <button onClick={()=>{saveValueClock()}}>Save</button>
     </>
   );
 }

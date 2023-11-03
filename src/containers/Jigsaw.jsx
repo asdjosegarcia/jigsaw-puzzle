@@ -29,13 +29,10 @@ const Jigsaw = () => {
         // let totalSize;//cantidad de bloques que va a tener el nivel/mapa 
         const mapGenerate = () => {//crea un array/mapa de numeros dependiendo de el alto y ancho seleccionado
             let totalSize = mapWidth * mapHeight;//multilicacion del ancho y alto para sacar la cantidad de bloques
-            // console.log('toltaSize',totalSize) //ok
             for (let i = 0; i < totalSize - 1; i++) {
                 completeMap.push(completeMap[completeMap.length - 1] + 1);//genera un arrayS
-                console.log(completeMap)
             }
             completeMap[0] = ""
-            // console.log('completeMap',completeMap)//ok
         }
         mapGenerate()
     }
@@ -47,7 +44,6 @@ const Jigsaw = () => {
         //extrae los valores de complete map y los mezcla de forma aleatoria
         [...completeMap],
     )
-    // console.log('getJig',getJigsawMap)
     const blockStyleGenerate = () => {
         getJigsawMap/* completeMap */.map((positionMap, index) => {//positionMap es valor del elemnto actual de getJigsawMap, index es la piscion del elemnto actual
             if (!positionMap == "") { //si position no es ""
@@ -56,11 +52,9 @@ const Jigsaw = () => {
                 blockStyle[index] = {}
             }
         })
-        // console.log(blockStyle)
     }
     blockStyleGenerate()
 
-    console.log('get', getJigsawMap)
 
     const specialPositionRight = completeMap.filter((numero) => { return (numero % mapWidth === 0) })
     const specialPositionLeft = specialPositionRight.map((number) => { return (number + 1) })//agrega +1 a cada valor del specialPositionRight previamente filtrado
@@ -95,7 +89,6 @@ const Jigsaw = () => {
         let newArray = [...getJigsawMap]
         newArray[blockPosition - 1] = ""
         newArray[quotesPosition - 1] = getJigsawMap[blockPosition - 1]
-        console.log('array antes de cargarse en el set', newArray)
         setJigsawMap(newArray)
         checkStatus(newArray)
     }
@@ -106,7 +99,6 @@ const Jigsaw = () => {
         const isEqual = JSON.stringify(newArray) === JSON.stringify(completeMap)//si es igual almacena un true
         if (isEqual) {//si es true
             setJigsawMap(completeMapQuotes)//establecemos el mapa como
-            // console.log('completeMapQuotes',completeMapQuotes)
             contexto.setCompletedGame(true)//establece set complete map como true, lo que le indica a react que renderize el ¡mapa superado estupida!
             contexto.setGameStartedStatus(false)
             contexto.setTimerStatus(false)
