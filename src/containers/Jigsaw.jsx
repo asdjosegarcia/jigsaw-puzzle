@@ -11,20 +11,23 @@ import { variableContext } from "../context/context.jsx";
 
 
 let gameStarted = false
+let movementsNumbers =1;
 const Jigsaw = () => {
+
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
     const soundMove = new Audio(moveSound)
     const mapWidth = jigsawMaps[contexto.getLevel].mapWhidth;
     const mapHeight = jigsawMaps[contexto.getLevel].mapHeight;
     const completeMap = [1];
     const blockStyle = {};//envia los background de los bloques
-
-
-
+    
+    
+    
     useEffect(() => {//si pasamos a un nivel nuevo
+        contexto.setScore({...contexto.getScore,map:contexto.getLevel})//guardamos el numero de mapa para almacenar el nivel
         setJigsawMap([...completeMap]) //acutaliza el mapa, de lo contrario se generan solo los cuadros del mapa anterior
     }, [contexto.getLevel]);
-
+    
     (function () {//funcion autoejecutable
         // let totalSize;//cantidad de bloques que va a tener el nivel/mapa 
         const mapGenerate = () => {//crea un array/mapa de numeros dependiendo de el alto y ancho seleccionado
@@ -85,12 +88,18 @@ const Jigsaw = () => {
         }
     }
 
+ 
+
+
     const movimiento = (quotesPosition, blockPosition) => {//intercambia la posicion del bloque vacio por el bloque clickeado
         let newArray = [...getJigsawMap]
         newArray[blockPosition - 1] = ""
         newArray[quotesPosition - 1] = getJigsawMap[blockPosition - 1]
         setJigsawMap(newArray)
         checkStatus(newArray)
+        movementsNumbers++
+        // console.log(movementsNumbers)
+        
     }
 
     const checkStatus = (newArray) => {//revisa si el mapa se completo durante cada movimiento
@@ -102,11 +111,12 @@ const Jigsaw = () => {
             contexto.setCompletedGame(true)//establece set complete map como true, lo que le indica a react que renderize el ¡mapa superado estupida!
             contexto.setGameStartedStatus(false)
             contexto.setTimerStatus(false)
+            contexto.setScore({...contexto.getScore,movementsNumber:movementsNumbers})
         }
     }
 
     const movePosition = (blockPosition) => {
-        if (!contexto.getCompletedGame) {//si completo creo
+        if (!contexto.getCompletedGame) {//si no completo el juego
             soundMove.play() //reproduce sonido movimiento
             remap(extractQuotesPosition(), blockPosition, specialPositionRight, specialPositionLeft)
         }
@@ -115,7 +125,7 @@ const Jigsaw = () => {
         }
     }
 
-
+    // console.log(contexto.getScore)
     return (
         <>
             <StartStage />{/* muestra el proximamente menu, alctual boton dle juego */}

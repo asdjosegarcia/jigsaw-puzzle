@@ -6,7 +6,7 @@ import { jigsawMaps } from "../utils/maps.jsx";
 
 const Background = ({children}) => {
     const contexto = useContext(variableContext)
-    console.log(contexto)
+    // console.log(contexto)
 
     const img = jigsawMaps[contexto.getLevel].imgBackgroundUrl
     const style = {

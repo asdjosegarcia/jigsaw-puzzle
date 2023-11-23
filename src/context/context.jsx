@@ -10,6 +10,14 @@ export function FuncionProvider({children}){//creamos la funcion que encapsulara
     const [getTimerStatus,setTimerStatus]=useState(false)//temporizador
     const soundBackground = new Audio(backgroundSound);
     const [getLevel,setLevel]=useState(1)
+    const [getScore,setScore]=useState({
+        user:'Unknown',
+        map:0,
+        userId:0,
+        score:0,
+        secondsPlayed:0,
+        movementsNumber:0,
+        })
 
       
 
@@ -20,6 +28,7 @@ export function FuncionProvider({children}){//creamos la funcion que encapsulara
             getTimerStatus,setTimerStatus,
             soundBackground,
             getLevel,setLevel,
+            getScore,setScore
             }}>{/* value almacena lo que queremos entregar a el resto de la app */}
             {children} {/* un children por que aqui entrar el elemento que encapsulemos */}
         </variableContext.Provider>

@@ -29,7 +29,14 @@ function Timer() {
 
   const saveValueClock=()=>{
     valueClock=[minutes,seconds,tenMs]
-    console.log('valueClock',valueClock)
+    const clockSeconds=((((valueClock[0]*60)+valueClock[1]*60)+(valueClock[2]/100 )))
+    contexto.setScore({...contexto.getScore,secondsPlayed:clockSeconds})
+    // console.log(contexto.getScore.movementsNumber)
+    // contexto.setScore({...contexto.getScore,score:(contexto.getScore.movementsNumber*clockSeconds)})
+    // console.log('valueClock',valueClock)
+    // console.log('valueClock',(((valueClock[0]*60)+valueClock[1]*60)+valueClock[2]))
+
+
   }
 
   const setClockToZero=(reset)=>{
@@ -65,6 +72,9 @@ function Timer() {
     if (contexto.getTimerStatus && !getPause ) { 
       tenMsInterval = setInterval(() => { showTime() }, 10);//si el juego inicio ejecuta la funcion cada 10 ms      
     } 
+    if(contexto.getCompletedGame){//si el usuario completo el juego se llama a la funcion paara que guarde el tiempo
+      saveValueClock()
+    }
     return (()=>{clearInterval(tenMsInterval)});//si no retornamos la funcion del useEfect el cronometro no para
   }, [contexto.getTimerStatus,getPause])
 
@@ -76,9 +86,9 @@ function Timer() {
   return (
     <>
       < >{`${getMinutes}:${getSeconds < 10 ? "0" + getSeconds : getSeconds}:${getMs < 10 ? "0" + getMs : getMs}`}</>{/* etiqueta fragment por que es la mas lijera */}
-      <button onClick={()=>{pauseClock()}}>Pause</button>
-      <button onClick={()=>{resetClock()}}>Reset</button>
-      <button onClick={()=>{saveValueClock()}}>Save</button>
+      {/* <button onClick={()=>{pauseClock()}}>Pause</button> */}
+      {/* <button onClick={()=>{resetClock()}}>Reset</button> */}
+      {/* <button onClick={()=>{saveValueClock()}}>Save</button> */}
     </>
   );
 }
