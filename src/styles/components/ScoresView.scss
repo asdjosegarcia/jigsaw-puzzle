@@ -1,0 +1,22 @@
+.scores-container{
+    color: rgb(211, 211, 211);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 5px;
+}
+table{
+    border: 5px solid rgb(57, 58, 59);
+    background-color: rgba(0, 0, 0, 0.404);
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.head-tr th{
+    padding: 5px;
+    font-size: 1.7vw;
+}
+td{
+    padding: 15px;
+    border-top: 2px solid rgba(156, 196, 231, 0.24);
+    font-size: 1.2vw;
+
+}

@@ -125,7 +125,6 @@ const Jigsaw = () => {
         }
     }
 
-    // console.log(contexto.getScore)
     return (
         <>
             <StartStage />{/* muestra el proximamente menu, alctual boton dle juego */}

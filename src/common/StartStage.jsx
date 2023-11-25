@@ -4,20 +4,13 @@ import '@styles/common/StartStage.scss'
 import { variableContext } from "../context/context.jsx";
 import NextButton from "../components/buttons/NextButton.jsx";
 import RetryButton from "../components/buttons/RetryButton.jsx"
-import ScoreView from "../components/ScoreView.jsx";
+import ScoresView from "../components/ScoresView.jsx";
+import UserScoreView from "../components/UserScoreView.jsx"
 
 let ejecuciones=0;
 export function StartStage() {
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
 
-/*     async function getApiScores() {
-        const res = await fetch(`https://db-puzzles.vercel.app/api/jigsaw/scores`)
-        const data = await res.json()
-        // await new Promise((resolve)=>{setTimeout(resolve,1000)})
-
-        // return data
-        console.log(data)
-    } */
 /*     if(contexto.getCompletedGame){
         getApiScores()
     } */
@@ -43,6 +36,11 @@ export function StartStage() {
         // color:'red',
         // textAling:'center'
     }
+    const UserScoreViewStyle={
+        gridColumn: '3/4',
+        gridRow: '1/3',
+        
+    }
 
 
     return (
@@ -51,7 +49,8 @@ export function StartStage() {
                 <div className="start-stage__background">
                     <div className="start-stage__container">
                         {/* {contexto.getCompletedGame && ( */}
-                        <ScoreView styleProp={ScoreViewStyle} ></ScoreView>
+                        <ScoresView styleProp={ScoreViewStyle} ></ScoresView>
+                        <UserScoreView styleProp={UserScoreViewStyle}></UserScoreView>
                         {/*  )} */}
                         <StartButton styleProp={startButtonStyle} />
                         <NextButton styleProp={nextButtonStyle} className="start-stage__NextButton" />
