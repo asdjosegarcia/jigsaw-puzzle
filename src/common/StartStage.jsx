@@ -30,17 +30,17 @@ export function StartStage() {
         justifySelf: 'end',
         // backgroundColor:'yellow'
     }
-    const ScoreViewStyle = {
+/*     const ScoreViewStyle = {
         gridColumn: '1/3',
-        gridRow: '1/3',
+        gridRow: '1/2',
         // color:'red',
         // textAling:'center'
-    }
-    const UserScoreViewStyle={
+    } */
+/*     const UserScoreViewStyle={
         gridColumn: '3/4',
-        gridRow: '1/3',
+        gridRow: '1/2',
         
-    }
+    } */
 
 
     return (
@@ -48,9 +48,12 @@ export function StartStage() {
             {!contexto.gameStartedStatus && ( /* si el juego esta iniciado el cartel desaparece */
                 <div className="start-stage__background">
                     <div className="start-stage__container">
+                        <div className="start-stage__scores">
+                        <ScoresView /* styleProp={ScoreViewStyle} */ ></ScoresView>
+                        <UserScoreView /* styleProp={UserScoreViewStyle} */></UserScoreView>
+
+                        </div>
                         {/* {contexto.getCompletedGame && ( */}
-                        <ScoresView styleProp={ScoreViewStyle} ></ScoresView>
-                        <UserScoreView styleProp={UserScoreViewStyle}></UserScoreView>
                         {/*  )} */}
                         <StartButton styleProp={startButtonStyle} />
                         <NextButton styleProp={nextButtonStyle} className="start-stage__NextButton" />
