@@ -21,6 +21,7 @@ const UserScoreView = (prop) => {
     }
 
     if (contexto.getCompletedGame && contexto.getScore.secondsPlayed) {
+        console.log(extractScore)
         async function postScore() {
             // console.log('extract', extractScore)
             const res = await fetch("https://db-asdjosegarcia.vercel.app/api/jigsaw/scores/new", {

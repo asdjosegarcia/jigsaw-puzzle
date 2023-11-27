@@ -11,8 +11,8 @@ export function FuncionProvider({children}){//creamos la funcion que encapsulara
     const soundBackground = new Audio(backgroundSound);
     const [getLevel,setLevel]=useState(1)
     const [getScore,setScore]=useState({
-        user:'Unknown',
         map:0,
+        user:'Unknown',
         userId:0,
         score:0,
         secondsPlayed:0,
