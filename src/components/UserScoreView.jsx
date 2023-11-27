@@ -20,8 +20,8 @@ const UserScoreView = (prop) => {
         }
     }
 
-    if (contexto.getCompletedGame && contexto.getScore.secondsPlayed) {
-        console.log(extractScore)
+    if (contexto.getCompletedGame && contexto.getScore.secondsPlayed>0 ) {
+        // console.log(extractScore)
         async function postScore() {
             // console.log('extract', extractScore)
             const res = await fetch("https://db-asdjosegarcia.vercel.app/api/jigsaw/scores/new", {
@@ -33,7 +33,7 @@ const UserScoreView = (prop) => {
             })
                 .then(response => {
                     const data = response.json();//datos que contienen la tarea
-                    console.log('POST-response', data)
+                    // console.log('POST-response', data)
                 })
                 .catch(error => {
                     console.log(error)
@@ -51,7 +51,7 @@ const UserScoreView = (prop) => {
                 <h3>Movements:</h3>
                 <p>{contexto.getScore.movementsNumber}</p>
                 <h3>Score:</h3>
-                <p>{newScore}{/* {contexto.getScore.score} */}</p>
+                <p>{/* {newScore} */}{contexto.getScore.score}</p>
 
             </div>
         </div>

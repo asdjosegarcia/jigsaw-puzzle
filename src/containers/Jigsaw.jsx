@@ -17,7 +17,7 @@ const Jigsaw = () => {
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
     const soundMove = new Audio(moveSound)
     const mapWidth = jigsawMaps[contexto.getLevel].mapWhidth;
-    const mapHeight = jigsawMaps[contexto.getLevel].mapHeight;
+    const mapHeight = jigsawMaps[contexto.getLevel].mapHeight; 
     const completeMap = [1];
     const blockStyle = {};//envia los background de los bloques
     
@@ -26,6 +26,8 @@ const Jigsaw = () => {
     useEffect(() => {//si pasamos a un nivel nuevo
         contexto.setScore({...contexto.getScore,map:contexto.getLevel})//guardamos el numero de mapa para almacenar el nivel
         setJigsawMap([...completeMap]) //acutaliza el mapa, de lo contrario se generan solo los cuadros del mapa anterior
+        contexto.setCompletedGame(false)
+        contexto.setResetClock(false)
     }, [contexto.getLevel]);
     
     (function () {//funcion autoejecutable

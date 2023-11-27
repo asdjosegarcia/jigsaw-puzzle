@@ -6,7 +6,17 @@ import { variableContext } from "@context/context.jsx";
 const NextButton = (prop) => {
     const contexto = useContext(variableContext)
     const levelUp = () => {
+        contexto.setResetClock(true)
+        contexto.setCompletedGame(false)
         contexto.setLevel(contexto.getLevel+1);
+        contexto.setScore({...contexto.getScore,
+            // map:0,
+            // user:'Unknown',
+            // userId:0,
+            score:0,
+            secondsPlayed:0,
+            movementsNumber:0,
+            })
         
     }
 
