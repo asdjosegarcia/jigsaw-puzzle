@@ -31,12 +31,6 @@ function Timer() {
     valueClock=[minutes,seconds,tenMs]
     const clockSeconds=((((valueClock[0]*60)+valueClock[1]*60)+(valueClock[2]/100 )))
     contexto.setScore({...contexto.getScore,secondsPlayed:clockSeconds})
-    // console.log(contexto.getScore.movementsNumber)
-    // contexto.setScore({...contexto.getScore,score:(contexto.getScore.movementsNumber*clockSeconds)})
-    // console.log('valueClock',valueClock)
-    // console.log('valueClock',(((valueClock[0]*60)+valueClock[1]*60)+valueClock[2]))
-
-
   }
 
   const setClockToZero=(reset)=>{

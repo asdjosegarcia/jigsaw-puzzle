@@ -3,29 +3,44 @@ import '@styles/components/UserScoreView.scss'
 import { variableContext } from "../context/context.jsx";
 
 
-let newScore=0;
+let newScore = 0;
+let postRequest = 0;
+let extractScore = {};
 const UserScoreView = (prop) => {
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
-    useEffect(() => {
-        const tiempo = ((0 - 999) / (10000 - 0)) * contexto.getScore.secondsPlayed + 999
-        const movimientos = ((0 - 999) / (1000 - 0)) * contexto.getScore.movementsNumber + 999
-        // console.log('tiempo', tiempo)
-        // console.log('movimientos', movimientos)
-         newScore = (tiempo * movimientos) / 1000
-         newScore = parseFloat(newScore.toFixed(2));
-         if (newScore !== contexto.getScore.score) {
-             contexto.setScore({ ...contexto.getScore, score: newScore });
-         }
-    
-      return  
-    }, [contexto.getCompletedGame])
-    
-    
+    extractScore = contexto.getScore
 
-    //  contexto.setScore({ ...contexto.getScore, score: score })//guardamos el numero de mapa para almacenar el nivel
+    if (contexto.getCompletedGame) {
+        const tiempo = ((0 - 999) / (10000 - 0)) * extractScore.secondsPlayed + 999
+        const movimientos = ((0 - 999) / (1000 - 0)) * extractScore.movementsNumber + 999
+        newScore = (tiempo * movimientos) / 1000
+        newScore = parseFloat(newScore.toFixed(2));
+        if (newScore !== extractScore.score) {
+            extractScore.score = newScore
+        }
+    }
 
+    if (contexto.getCompletedGame && contexto.getScore.secondsPlayed) {
+        async function postScore() {
+            // console.log('extract', extractScore)
+            const res = await fetch("https://db-asdjosegarcia.vercel.app/api/jigsaw/scores/new", {
+                method: "POST",//creamos la tarea con POST
+                body: JSON.stringify(extractScore),//enviamos como datos para la nueva tarea un post con titulo y descripcion
+                headers: { //le indicamos que trabajaremos con 
+                    "Content-Type": "application/json",//json
+                },
+            })
+                .then(response => {
+                    const data = response.json();//datos que contienen la tarea
+                    console.log('POST-response', data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }
+        postScore()
+    }
 
-    console.log(contexto.getScore)
     return (
         <div style={prop.styleProp} className='userScoreView-container'>
             <div className='userScoreView-content'>

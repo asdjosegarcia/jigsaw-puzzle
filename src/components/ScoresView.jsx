@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import '@styles/components/ScoresView.scss'
+import { variableContext } from '../context/context.jsx'
 
-// let data;
+let data;
 const ScoreView = (prop) => {
+    const contexto = useContext(variableContext)
     const [getData, setData] = useState([])
     useEffect(() => {
-        async function getApiScores() {
-            const res = await fetch(`https://db-asdjosegarcia.vercel.app/api/jigsaw/scores`)
-            const data = (await res.json())
-            console.log(data)
-            setData(data)
-            //   await new Promise((resolve)=>{setTimeout(resolve,1000)})
-
-            // return data
+        if(contexto.getCompletedGame && data==undefined ){
+            async function getApiScores() {
+                const res = await fetch(`https://db-asdjosegarcia.vercel.app/api/jigsaw/scores/best-ten`)
+                /* const */ data = (await res.json())
+                console.log(await data)
+                setData(await data)
+            }
+            getApiScores()
         }
-        getApiScores()
 
-/*         fetch('https://db-asdjosegarcia.vercel.app/api/jigsaw/scores/')
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.error('Error:', error)); */
-    }, [])
+
+    }, [contexto.getCompletedGame])
 
     return (
         <div style={prop.styleProp} className='scores-container'>
@@ -28,16 +26,16 @@ const ScoreView = (prop) => {
                 <thead>
                     <tr className='head-tr'>
                         <th>N</th>
-                        <th>Jugador</th>
-                        <th>Tiempo</th>
-                        <th>Movimientos</th>
+                        <th>Player</th>
+                        <th>Time</th>
+                        <th>Movements</th>
                         <th>Score</th>
                         {/* <th>Fecha</th> */}
                     </tr>
                 </thead>
                 <tbody>
                     {/* {console.log(getData)} */}
-                    {  getData.map((user,index)=>{return(<tr key={user.id}>{<td>{index}</td>}<td>{user.user}</td><td>{user.secondsPlayed}</td><td>{user.movementsNumber}</td><td>{user.score}</td></tr>)})}  
+                    {  getData.map((user,index)=>{return(<tr key={user.id}>{<td>{index+1}</td>}<td>{user.user}</td><td>{user.secondsPlayed}</td><td>{user.movementsNumber}</td><td>{user.score}</td></tr>)})}  
                     {/*                     <tr>
                         <td>Juan</td>
                         <td>Gomez</td>
