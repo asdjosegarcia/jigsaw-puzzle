@@ -38,15 +38,7 @@ const ScoreView = (prop) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {console.log(getData)} */}
                     {getData.map((user, index) => { return (<tr key={index}>{<td>{index + 1}</td>}<td>{user.user}</td><td>{user.secondsPlayed}</td><td>{user.movementsNumber}</td><td>{user.score}</td></tr>) })}
-{/*                     <tr>
-                        <td>----</td>
-                        <td>----</td>
-                        <td>----</td>
-                        <td>----</td>
-                        <td>----</td>
-                    </tr> */}
 
                 </tbody>
             </table>

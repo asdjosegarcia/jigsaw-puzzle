@@ -140,7 +140,7 @@ const Jigsaw = () => {
                 <JigsawTitle />
                 <JigsawImgPreview />
                 <div style={style} className={`jigsaw-container border-${!contexto.getCompletedGame ? 'inactive' : 'active'}`}>
-                    {getJigsawMap.map((item, index, arr) => { return (<div onClick={() => { movePosition(index + 1) }} style={blockStyle[index]} key={index} className={/* piece-${getJigsawMap[index]}  */`pieces border-${contexto.getCompletedGame ? 'inactive' : 'active'}`}>{/* {getJigsawMap[index]} */}</div>) })}
+                    {getJigsawMap.map((item, index, arr) => { return (<div onClick={() => { movePosition(index + 1) }} style={blockStyle[index]} key={index} className={/* piece-${getJigsawMap[index]}  */ `pieces border-${contexto.getCompletedGame ? 'inactive' : 'active'}`}>{/* {getJigsawMap[index]} */}</div>) })}
                 </div>
             </div>
         </>
