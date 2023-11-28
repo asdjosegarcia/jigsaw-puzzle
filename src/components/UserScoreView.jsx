@@ -23,21 +23,22 @@ const UserScoreView = (prop) => {
     if (contexto.getCompletedGame && contexto.getScore.secondsPlayed>0 ) {
         // console.log(extractScore)
         async function postScore() {
+            console.log('POST-request')
             // console.log('extract', extractScore)
-            const res = await fetch("https://db-asdjosegarcia.vercel.app/api/jigsaw/scores/new", {
-                method: "POST",//creamos la tarea con POST
-                body: JSON.stringify(extractScore),//enviamos como datos para la nueva tarea un post con titulo y descripcion
-                headers: { //le indicamos que trabajaremos con 
-                    "Content-Type": "application/json",//json
-                },
-            })
-                .then(response => {
-                    const data = response.json();//datos que contienen la tarea
-                    // console.log('POST-response', data)
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+            // const res = await fetch("https://db-asdjosegarcia.vercel.app/api/jigsaw/scores/new", {
+            //     method: "POST",//creamos la tarea con POST
+            //     body: JSON.stringify(extractScore),//enviamos como datos para la nueva tarea un post con titulo y descripcion
+            //     headers: { //le indicamos que trabajaremos con 
+            //         "Content-Type": "application/json",//json
+            //     },
+            // })
+            //     .then(response => {
+            //         const data = response.json();//datos que contienen la tarea
+            //         console.log('POST-response', data)
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //     })
         }
         postScore()
     }

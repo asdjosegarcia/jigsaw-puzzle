@@ -17,7 +17,6 @@ const NextButton = (prop) => {
             secondsPlayed:0,
             movementsNumber:0,
             })
-        
     }
 
     return (
