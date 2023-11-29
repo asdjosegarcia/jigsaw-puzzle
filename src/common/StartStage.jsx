@@ -7,6 +7,7 @@ import RetryButton from "../components/buttons/RetryButton.jsx"
 import ScoresView from "../components/ScoresView.jsx";
 import UserScoreView from "../components/UserScoreView.jsx"
 import MapDescription from "../components/MapDescription.jsx";
+import NameInput from "../components/NameInput.jsx";
 
 let ejecuciones = 0;
 
@@ -15,12 +16,11 @@ export function StartStage() {
     let startButtonview = false;//true se renderiza boton, false pos nel
     let retryReplyButtonView = false;
     let nextButtonView = false;
+    let nameInputVieew = false;
     // if (contexto.gameStatus.mapAttempts<1) {
-        //     startButtonview=true
+    //     startButtonview=true
     // }
-    switch (true) {
-        // case (blockPosition == quotesPosition):
-        //     break;
+    switch (true) {//este switch gestiona el renderizado de los bottones
         case (contexto.gameStatus.mapAttempts > 0):
             retryReplyButtonView = true;
             break;
@@ -31,40 +31,25 @@ export function StartStage() {
             break;
         case (contexto.gameStatus.mapAttempts < 1):
             startButtonview = true;
-        break;
-        // default:
-        //     if (blockPosition == quotesPosition - mapWidth || blockPosition == quotesPosition + mapWidth || blockPosition == quotesPosition + 1 || blockPosition == quotesPosition - 1) {
-        //         movimiento(quotesPosition, blockPosition)
-        //     }
+            break;
     }
 
     const startButtonStyle = { //enviamos los estilos desde aqui para evitar tocar el css de manera directa en el startbuton.css y afectar a todos los starts button
-        gridColumn: '1/3',
-        gridRow: '3/3',
-        justifySelf: 'center',
+        /*         gridColumn: '1/3',
+                gridRow: '3/3',
+                justifySelf: 'center', */
     }
     const nextButtonStyle = {
-        gridColumn: '1/3',
-        gridRow: '3/3',
-        justifySelf: 'start',
+        /*         gridColumn: '1/3',
+                gridRow: '1/1',
+                justifySelf: 'start', */
     }
     const retryButtonStyle = {
-        gridColumn: '1/3',
-        gridRow: '3/3',
-        justifySelf: 'end',
+        // gridColumn: '1/3',
+        // gridRow: '1/1',
+        // justifySelf: 'end',
         // backgroundColor:'yellow'
     }
-    /*     const ScoreViewStyle = {
-            gridColumn: '1/3',
-            gridRow: '1/2',
-            // color:'red',
-            // textAling:'center'
-        } */
-    /*     const UserScoreViewStyle={
-            gridColumn: '3/4',
-            gridRow: '1/2',
-            
-        } */
 
 
     return (
@@ -86,8 +71,11 @@ export function StartStage() {
 
 
                         </div>
-                        {/* {contexto.getCompletedGame && ( */}
-                        {/*  )} */}
+                        {contexto.getCompletedGame && //si el juego se completo muestra el input para escribir el nombre
+                            <div className="start-stage__input-Name-container">
+                                <NameInput></NameInput>
+                            </div>
+                        }
                         <div className="start-stage__buttons-container">
                             {retryReplyButtonView && <RetryButton styleProp={retryButtonStyle} className="start-stage__RetryButton" />}
                             {startButtonview && <StartButton styleProp={startButtonStyle} />}
