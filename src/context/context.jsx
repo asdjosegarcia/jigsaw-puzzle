@@ -9,6 +9,10 @@ export function FuncionProvider({children}){//creamos la funcion que encapsulara
     const [getCompletedGame, setCompletedGame] = useState(false)//establece el juego como completado
     const [getTimerStatus,setTimerStatus]=useState(false)//temporizador
     const [getResetClock,setResetClock]=useState(false)
+    let gameStatus={
+        mapAttempts:0,
+        mapStatus:'none'
+    }
     const soundBackground = new Audio(backgroundSound);
     const [getLevel,setLevel]=useState(1)
     const [getScore,setScore]=useState({
@@ -29,6 +33,7 @@ export function FuncionProvider({children}){//creamos la funcion que encapsulara
             getCompletedGame,setCompletedGame,
             getTimerStatus,setTimerStatus,
             getResetClock,setResetClock,
+            gameStatus,
             soundBackground,
             getLevel,setLevel,
             getScore,setScore

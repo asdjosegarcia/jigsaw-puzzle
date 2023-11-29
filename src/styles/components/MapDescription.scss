@@ -1,10 +1,19 @@
 .description-container{
     color: aliceblue;
     font-size: 2rem;
-    width: 50%;
+    width: 50vw;
     background-color: rgba(0, 0, 0, 0.630);
     border-radius: 5px;
     padding: 5px;
     margin-top: 10px;
-
+}
+@media (max-width: 1500px) {
+    .description-container{
+    width: 60vw;
+    }
+}
+@media (max-width: 900px) {
+    .description-container{
+    width: 90vw;
+    }
 }

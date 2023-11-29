@@ -9,24 +9,47 @@ import UserScoreView from "../components/UserScoreView.jsx"
 import MapDescription from "../components/MapDescription.jsx";
 
 let ejecuciones = 0;
+
 export function StartStage() {
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
+    let startButtonview = false;//true se renderiza boton, false pos nel
+    let retryReplyButtonView = false;
+    let nextButtonView = false;
+    // if (contexto.gameStatus.mapAttempts<1) {
+        //     startButtonview=true
+    // }
+    switch (true) {
+        // case (blockPosition == quotesPosition):
+        //     break;
+        case (contexto.gameStatus.mapAttempts > 0):
+            retryReplyButtonView = true;
+            break;
+        case (contexto.getCompletedGame):
+            nextButtonView = true
+            retryReplyButtonView = true;
+            startButtonview = false;
+            break;
+        case (contexto.gameStatus.mapAttempts < 1):
+            startButtonview = true;
+        break;
+        // default:
+        //     if (blockPosition == quotesPosition - mapWidth || blockPosition == quotesPosition + mapWidth || blockPosition == quotesPosition + 1 || blockPosition == quotesPosition - 1) {
+        //         movimiento(quotesPosition, blockPosition)
+        //     }
+    }
 
-    /*     if(contexto.getCompletedGame){
-            getApiScores()
-        } */
     const startButtonStyle = { //enviamos los estilos desde aqui para evitar tocar el css de manera directa en el startbuton.css y afectar a todos los starts button
-        gridColumn: '2/3',
+        gridColumn: '1/3',
         gridRow: '3/3',
         justifySelf: 'center',
     }
     const nextButtonStyle = {
-        gridColumn: '3/3',
+        gridColumn: '1/3',
         gridRow: '3/3',
         justifySelf: 'start',
     }
     const retryButtonStyle = {
-        gridColumn: '1/2',
+        gridColumn: '1/3',
         gridRow: '3/3',
         justifySelf: 'end',
         // backgroundColor:'yellow'
@@ -51,23 +74,25 @@ export function StartStage() {
                     <div className="start-stage__container">
                         <div className="start-stage__scores">
                             <>
-                            {contexto.getCompletedGame ? (
-                                <>
-                                <ScoresView /* styleProp={ScoreViewStyle} */ ></ScoresView>
-                                <UserScoreView /* styleProp={UserScoreViewStyle} */></UserScoreView>
-                                </>
-                            ) : (
-                                <MapDescription></MapDescription>
-                            )}
+                                {contexto.getCompletedGame ? (
+                                    <>
+                                        <ScoresView /* styleProp={ScoreViewStyle} */ ></ScoresView>
+                                        <UserScoreView /* styleProp={UserScoreViewStyle} */></UserScoreView>
+                                    </>
+                                ) : (
+                                    <MapDescription></MapDescription>
+                                )}
                             </>
 
 
                         </div>
                         {/* {contexto.getCompletedGame && ( */}
                         {/*  )} */}
-                        <StartButton styleProp={startButtonStyle} />
-                        <NextButton styleProp={nextButtonStyle} className="start-stage__NextButton" />
-                        <RetryButton styleProp={retryButtonStyle} className="start-stage__RetryButton" />
+                        <div className="start-stage__buttons-container">
+                            {retryReplyButtonView && <RetryButton styleProp={retryButtonStyle} className="start-stage__RetryButton" />}
+                            {startButtonview && <StartButton styleProp={startButtonStyle} />}
+                            {nextButtonView && <NextButton styleProp={nextButtonStyle} className="start-stage__NextButton" />}
+                        </div>
                     </div>
 
                 </div>
