@@ -6,8 +6,16 @@ import { variableContext } from "@context/context.jsx";
 
 const NextButton = (prop) => {
     const contexto = useContext(variableContext)
+    let buttonText=''
+
+    if(contexto.getScore.mapWin){
+        buttonText='Replay'
+    }else{
+        buttonText='Retry'
+    }
 
     const levelUp = () => {
+        // contexto.setLevel(1)
         contexto.setResetClock(true)
         contexto.setTimerStatus(true)
         contexto.setCompletedGame(false)
@@ -31,7 +39,7 @@ const NextButton = (prop) => {
     return (
         <>
             <button style={prop.styleProp} onClick={() => levelUp()} className="general-button retry-button__button">
-                <p className="genral-button__button-text retry-button__button-text">⟳ Retry</p>
+                <p className="genral-button__button-text retry-button__button-text">⟳ {buttonText}</p>
             </button>
         </>
     )

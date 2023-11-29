@@ -114,7 +114,7 @@ export const jigsawMaps = {
         startItems:{
             startTitle:'',
             startMessage:'El pato, un ave cautivadora con un plumaje que resplandece a la luz del sol como un lienzo de tonos vibrantes. Su gracioso andar puede llegar a pintar una sonrisa a más de uno. Destacado por trazar huellas sobre la tierra, rizos sobre el agua y direcciones en los cielos que sugieren la promesa de un vuelo compartido hacia horizontes inexplorados.',
-            startSecondMessage:'Nota: agregamos algunos bloques extra para que explores'
+            startSecondMessage:'Nota: agregamos algunos bloques extras para que explores'
         },
         finishItems: {
             finishTitle:'YOU WIN',

@@ -18,6 +18,7 @@ export function FuncionProvider({children}){//creamos la funcion que encapsulara
         score:0,
         secondsPlayed:0,
         movementsNumber:0,
+        mapWin:true,
         })
 
       
