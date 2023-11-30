@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext} from "react";
 import '@styles/components/UserScoreView.scss'
 import { variableContext } from "../context/context.jsx";
 
@@ -24,7 +24,6 @@ const UserScoreView = (prop) => {
         // console.log(extractScore)
         async function postScore() {
             console.log('POST-request')
-            // console.log('extract', extractScore)
             const res = await fetch("https://db-asdjosegarcia.vercel.app/api/jigsaw/scores/new", {
                 method: "POST",//creamos la tarea con POST
                 body: JSON.stringify(extractScore),//enviamos como datos para la nueva tarea un post con titulo y descripcion
@@ -32,9 +31,12 @@ const UserScoreView = (prop) => {
                     "Content-Type": "application/json",//json
                 },
             })
-                .then(response => {
-                    const data = response.json();//datos que contienen la tarea
+                .then(async response => {
+                    const data =await  response.json();//datos que contienen la tarea
+                    contexto.gameStatus={ ...contexto.gameStatus, scoreId: data.id }
                     console.log('POST-response', data)
+                    // const id=data.id
+                    // console.log(contexto.gameStatus)
                 })
                 .catch(error => {
                     console.log(error)

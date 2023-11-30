@@ -11,7 +11,8 @@ export function FuncionProvider({children}){//creamos la funcion que encapsulara
     const [getResetClock,setResetClock]=useState(false)
     let gameStatus={
         mapAttempts:0,
-        mapStatus:'complete'
+        mapStatus:'complete',
+        scoreId:0
     }
     const soundBackground = new Audio(backgroundSound);
     const [getLevel,setLevel]=useState(1)
