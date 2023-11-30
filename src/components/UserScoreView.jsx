@@ -34,7 +34,7 @@ const UserScoreView = (prop) => {
                 .then(async response => {
                     const data =await  response.json();//datos que contienen la tarea
                     contexto.gameStatus={ ...contexto.gameStatus, scoreId: data.id }
-                    console.log('POST-response', data)
+                    // console.log('POST-response', data)
                     // const id=data.id
                     // console.log(contexto.gameStatus)
                 })

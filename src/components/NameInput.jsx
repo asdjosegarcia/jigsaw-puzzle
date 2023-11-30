@@ -12,7 +12,7 @@ const NameInput = () => {
       };
     
     function send(){
-        async function putScore() {
+        async function putName() {
             console.log('PUT-request')
             const res = await fetch(`https://db-asdjosegarcia.vercel.app/api/jigsaw/scores/${contexto.gameStatus.scoreId}`, {
                 method: "PUT",//creamos la tarea con PUT
@@ -23,13 +23,13 @@ const NameInput = () => {
             })
                 .then(async response => {
                     const data =await  response.json();
-                    console.log('PUT-response', data)
+                    // console.log('PUT-response', data)
                 })
                 .catch(error => {
                     console.log(error)
                 })
         }
-        putScore()
+        putName()
 
     }
 

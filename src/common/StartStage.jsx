@@ -8,21 +8,26 @@ import ScoresView from "../components/ScoresView.jsx";
 import UserScoreView from "../components/UserScoreView.jsx"
 import MapDescription from "../components/MapDescription.jsx";
 import NameInput from "../components/NameInput.jsx";
+import { jigsawMaps } from "../utils/maps.jsx";
 
-let ejecuciones = 0;
 
 export function StartStage() {
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
+    const mapsLenght=Object.keys(jigsawMaps).length
+
     let startButtonview = false;//true se renderiza boton, false pos nel
     let retryReplyButtonView = false;
     let nextButtonView = false;
     let nameInputVieew = false;
-    // if (contexto.gameStatus.mapAttempts<1) {
-    //     startButtonview=true
-    // }
+
     switch (true) {//este switch gestiona el renderizado de los bottones
         case (contexto.gameStatus.mapAttempts > 0):
             retryReplyButtonView = true;
+            break;
+        case (contexto.getCompletedGame && contexto.getScore.map == mapsLenght):
+            nextButtonView = false;
+            retryReplyButtonView = true;
+            startButtonview = false;
             break;
         case (contexto.getCompletedGame):
             nextButtonView = true

@@ -1,9 +1,15 @@
 .jigsaw_h1-title{
     text-align: center;
     // width:60vh;
-    grid-column: 3/4;
+    grid-column: 1/6;
     grid-row: 2/3;
     text-align: center;
     // background-color: rgba($color: #000000, $alpha: 0.0);
-
+}
+@media  (max-width: 700px) {
+.jigsaw_h1-title{
+    // padding-left: 20px;
+    grid-column: 1/6;
+    grid-row: 1/2;
+}
 }

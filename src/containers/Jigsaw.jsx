@@ -26,14 +26,13 @@ const Jigsaw = () => {
     useEffect(() => {//si pasamos a un nivel nuevo
         if(!contexto.getCompletedGame){
             contexto.setScore({...contexto.getScore,map:contexto.getLevel})//guardamos el numero de mapa para almacenar el nivel
-            setJigsawMap([...completeMap]) //acutaliza el mapa, de lo contrario se generan solo los cuadros del mapa anterior
+            setJigsawMap(/* [" ",3,4,5,6,7,8,2,9] */[...completeMap]) //acutaliza el mapa, de lo contrario se generan solo los cuadros del mapa anterior
             contexto.setCompletedGame(false)
             contexto.setResetClock(false)
         }
     }, [contexto.getLevel,contexto.getCompletedGame]);
     
     (function () {//funcion autoejecutable
-        // let totalSize;//cantidad de bloques que va a tener el nivel/mapa 
         const mapGenerate = () => {//crea un array/mapa de numeros dependiendo de el alto y ancho seleccionado
             let totalSize = mapWidth * mapHeight;//multilicacion del ancho y alto para sacar la cantidad de bloques
             for (let i = 0; i < totalSize - 1; i++) {
