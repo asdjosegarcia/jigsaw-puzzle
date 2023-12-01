@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import '@styles/Jigsaw.scss'
-import moveSound from "@sounds/snow_slowed.mp3"
+// import moveSound from "@sounds/snow_slowed.mp3"
+
 import JigsawTitle from '@components/JigsawTitle.jsx'
 import JigsawImgPreview from '@components/JigsawImgPreview.jsx'
 import Timer from "../components/Timer.jsx";
@@ -15,7 +16,8 @@ let movementsNumbers =1;
 const Jigsaw = () => {
 
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
-    const soundMove = new Audio(moveSound)
+    // const soundMove = new Audio(moveSound)
+    const soundMove = new Audio(jigsawMaps[contexto.getLevel].movementSound)
     const mapWidth = jigsawMaps[contexto.getLevel].mapWhidth;
     const mapHeight = jigsawMaps[contexto.getLevel].mapHeight; 
     const completeMap = [1];
@@ -27,7 +29,7 @@ const Jigsaw = () => {
         if(!contexto.getCompletedGame){
             contexto.setScore({...contexto.getScore,map:contexto.getLevel})//guardamos el numero de mapa para almacenar el nivel
             // console.log(completeMap)
-            setJigsawMap(/* [" ",3,4,5,6,7,8,2,9] */[...completeMap]/* ([...completeMap]).sort((a, b) => (b==2)? 999:  0.5 - Math.random()) */) //acutaliza el mapa, de lo contrario se generan solo los cuadros del mapa anterior
+            setJigsawMap(/* [" ",3,4,5,6,7,8,2,9] *//* [...completeMap] */([...completeMap]).sort((a, b) => (b==2)? 999:  0.5 - Math.random())) //acutaliza el mapa, de lo contrario se generan solo los cuadros del mapa anterior
             contexto.setCompletedGame(false)
             contexto.setResetClock(false)
         }

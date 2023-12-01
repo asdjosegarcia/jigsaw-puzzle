@@ -2,6 +2,7 @@
 const bkImg0 = "";
 //lvl1
 import bgImglvl1 from '@img/background/lvl1.jpg'//importamos por que sino webpack no nos transgorma la url y nos da un 404
+import movementSoundlvl1 from '@sounds/snow_slowed.mp3'
 import prevImglvl1 from '@img/preview/lvl1.jpg'
 import bkImg1lvl1 from '@img/pieces_img/lvl1/1.jpg'
 import bkImg2lvl1 from '@img/pieces_img/lvl1/2.jpg'
@@ -14,6 +15,7 @@ import bkImg8lvl1 from '@img/pieces_img/lvl1/8.jpg'
 import bkImg9lvl1 from '@img/pieces_img/lvl1/9.jpg'
 //lvl2
 import bgImglvl2 from '@img/background/lvl2.jpg'
+import movementSoundlvl2 from '@sounds/lvl2Moviment.mp3'
 import bkImg1lvl2 from '@img/pieces_img/lvl2/1.jpg'
 import bkImg2lvl2 from '@img/pieces_img/lvl2/2.jpg'
 import bkImg3lvl2 from '@img/pieces_img/lvl2/3.jpg'
@@ -68,7 +70,7 @@ export const jigsawMaps = {
             bkImg8lvl1,
             bkImg9lvl1,],
         backgroundSound:'',
-        movementSound:'',
+        movementSound:movementSoundlvl1,
         startItems:{
             startTitle:'',
             startMessage:'El pingüino papúa, con su elegante abrigo negro y blanco. Su andar torpe en tierra se transforma en un ballet acuático cuando se sumerge en las frías aguas. Con ojos expresivos y un aire juguetón. Este pingüino subantártico roba corazones con su irresistible encanto y su personalidad única.',
@@ -110,7 +112,7 @@ export const jigsawMaps = {
             bkImg16lvl2,
         ],
         backgroundSound:'',
-        movementSound:'',
+        movementSound:movementSoundlvl2,
         startItems:{
             startTitle:'',
             startMessage:'El pato, un ave cautivadora con un plumaje que resplandece a la luz del sol,con un gracioso andar. Destacado por trazar huellas sobre la tierra, rizos sobre el agua y direcciones en los cielos que sugieren la promesa de un vuelo compartido hacia horizontes inexplorados.',
