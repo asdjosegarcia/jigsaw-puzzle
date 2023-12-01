@@ -49,3 +49,17 @@
 .start-stage__buttons-container button{
     margin:0 1vw;
 }
+@media (max-width: 900px) {
+    .start-stage__input-Name-container{
+        grid-column: 1/4;
+        width: 80%;
+        padding: 0 40px;
+    }
+    .start-stage__scores{
+        flex-direction: column;
+    }
+    table{ //desactivamos la tabla de scores para mobile hasta que sepa donde ponerla
+        display: none;
+    }
+
+    }
