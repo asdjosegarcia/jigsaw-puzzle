@@ -55,9 +55,10 @@
         width: 80%;
         padding: 0 40px;
     }
-    .start-stage__scores{
-        flex-direction: column;
-    }
+    // .start-stage__scores{
+    //     align-items: center;
+    //     flex-direction: column;
+    // }
     table{ //desactivamos la tabla de scores para mobile hasta que sepa donde ponerla
         display: none;
     }

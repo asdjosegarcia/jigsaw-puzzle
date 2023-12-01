@@ -4,7 +4,6 @@
     // margin-top: 20px;
     background-color: rgba(0, 0, 0, 0.630);
     border: 5px solid rgba(53, 52, 52, 0.774)/* rgb(57, 58, 59) */;
-    height: 100%;
     padding: 0 20px;
     margin-top: 5px;
     border-radius: 5px;
@@ -18,4 +17,9 @@
     
     // padding: none;
 
+}
+@media (max-width: 900px) {
+    .userScoreView-container{
+        width: 100%;
+    }
 }
