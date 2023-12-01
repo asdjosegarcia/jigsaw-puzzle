@@ -71,7 +71,7 @@ export const jigsawMaps = {
         movementSound:'',
         startItems:{
             startTitle:'',
-            startMessage:'El pingüino papúa, con su elegante abrigo negro y blanco. Su andar torpe en tierra se transforma en un ballet acuático cuando se sumerge en las frías aguas. Cautivando con gracia tanto en tierra como en mar. Social y de afectuosas colonias, compartie responsabilidades parentales con lealtad. Con ojos expresivos y un aire juguetón. Una verdadera joya de la naturaleza, este pingüino subantártico roba corazones con su irresistible encanto y su personalidad única.',
+            startMessage:'El pingüino papúa, con su elegante abrigo negro y blanco. Su andar torpe en tierra se transforma en un ballet acuático cuando se sumerge en las frías aguas. Con ojos expresivos y un aire juguetón. Este pingüino subantártico roba corazones con su irresistible encanto y su personalidad única.',
             startSecondMessage:'',
         },
         finishItems: {
@@ -113,7 +113,7 @@ export const jigsawMaps = {
         movementSound:'',
         startItems:{
             startTitle:'',
-            startMessage:'El pato, un ave cautivadora con un plumaje que resplandece a la luz del sol como un lienzo de tonos vibrantes. Su gracioso andar puede llegar a pintar una sonrisa a más de uno. Destacado por trazar huellas sobre la tierra, rizos sobre el agua y direcciones en los cielos que sugieren la promesa de un vuelo compartido hacia horizontes inexplorados.',
+            startMessage:'El pato, un ave cautivadora con un plumaje que resplandece a la luz del sol,con un gracioso andar. Destacado por trazar huellas sobre la tierra, rizos sobre el agua y direcciones en los cielos que sugieren la promesa de un vuelo compartido hacia horizontes inexplorados.',
             startSecondMessage:'Nota: agregamos algunos bloques extras para que explores'
         },
         finishItems: {
@@ -147,7 +147,7 @@ export const jigsawMaps = {
         movementSound:'',
         startItems:{
             startTitle:'',
-            startMessage:'El gato irradia elegancia con su pelaje sedoso, donde los rayos del sol danzan en armonía. Sus ojos, dos esmeraldas curiosas, destilan misterio y dulzura. Cautiva con su andar sigiloso, dejando huellas de gracia en cada paso. Su ronroneo es una melodía suave que acaricia el corazón, mientras que su mirada profunda parece contar historias secretas. Este felino encantador despierta ternura con cada movimiento, convirtiéndose en un confidente de susurros suaves. Con la agilidad de un bailarín, se desliza entre sombras como un enigma adorable.',
+            startMessage:'El gato con su pelaje sedoso, donde los rayos del sol. Sus ojos, dos esmeraldas curiosas, destilan misterio y dulzura. Su ronroneo es una melodía suave que acaricia el corazón, mientras que su mirada profunda parece contar historias secretas. Este felino encantador despierta ternura con cada movimiento deslizandose entre sombras como un enigma.',
             startSecondMessage:''
 
         },
