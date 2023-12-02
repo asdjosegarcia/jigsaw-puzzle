@@ -13,7 +13,7 @@ import { jigsawMaps } from "../utils/maps.jsx";
 
 export function StartStage() {
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
-    const mapsLenght=Object.keys(jigsawMaps).length
+    const mapsLenght=Object.keys(jigsawMaps).length//nos da la cantidad de mapas
 
     let startButtonview = false;//true se renderiza boton, false pos nel
     let retryReplyButtonView = false;

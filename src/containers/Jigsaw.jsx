@@ -115,6 +115,7 @@ const Jigsaw = () => {
         if (isEqual) {//si es true
             setJigsawMap(completeMapQuotes)//establecemos el mapa como
             contexto.setCompletedGame(true)//establece set complete map como true, lo que le indica a react que renderize el ¡mapa superado estupida!
+            contexto.soundBackground.pause()
             contexto.setGameStartedStatus(false)
             contexto.setTimerStatus(false)
             contexto.setScore({...contexto.getScore,movementsNumber:movementsNumbers})

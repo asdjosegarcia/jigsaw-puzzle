@@ -1,5 +1,7 @@
 import React,{useEffect, useState} from "react"
-import backgroundSound from "@sounds/background_sound.mp3"
+// import backgroundSound from "@sounds/background_sound_lvl1.mp3"
+import { jigsawMaps } from "../utils/maps.jsx";
+
 
 
 export const variableContext=React.createContext();//creamos un context
@@ -14,8 +16,8 @@ export function FuncionProvider({children}){//creamos la funcion que encapsulara
         mapStatus:'complete',
         scoreId:0
     }
-    const soundBackground = new Audio(backgroundSound);
     const [getLevel,setLevel]=useState(1)
+    const soundBackground = new Audio(jigsawMaps[getLevel].backgroundSound);
     const [getScore,setScore]=useState({
         map:0,
         user:'Unknown',

@@ -17,6 +17,9 @@ const NextButton = (prop) => {
             secondsPlayed:0,
             movementsNumber:0,
             })
+            if(contexto.soundBackground.loop==true){ //si ya se esta reproduciendo el audio en infinito no lo reproduce de nuevo
+                contexto.soundBackground.loop = false;//reproduccion del audio en infinito
+              }
     }
 
     return (

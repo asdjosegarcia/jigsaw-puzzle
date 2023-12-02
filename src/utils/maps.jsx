@@ -3,6 +3,7 @@ const bkImg0 = "";
 //lvl1
 import bgImglvl1 from '@img/background/lvl1.jpg'//importamos por que sino webpack no nos transgorma la url y nos da un 404
 import movementSoundlvl1 from '@sounds/snow_slowed.mp3'
+import backgroundSoundlvl1 from '@sounds/background_sound_lvl1.mp3'
 import prevImglvl1 from '@img/preview/lvl1.jpg'
 import bkImg1lvl1 from '@img/pieces_img/lvl1/1.jpg'
 import bkImg2lvl1 from '@img/pieces_img/lvl1/2.jpg'
@@ -16,6 +17,7 @@ import bkImg9lvl1 from '@img/pieces_img/lvl1/9.jpg'
 //lvl2
 import bgImglvl2 from '@img/background/lvl2.jpg'
 import movementSoundlvl2 from '@sounds/lvl2Moviment.mp3'
+import backgroundSoundlvl2 from '@sounds/background_sound_lvl2.mp3'
 import bkImg1lvl2 from '@img/pieces_img/lvl2/1.jpg'
 import bkImg2lvl2 from '@img/pieces_img/lvl2/2.jpg'
 import bkImg3lvl2 from '@img/pieces_img/lvl2/3.jpg'
@@ -69,7 +71,7 @@ export const jigsawMaps = {
             bkImg7lvl1,
             bkImg8lvl1,
             bkImg9lvl1,],
-        backgroundSound:'',
+        backgroundSound:backgroundSoundlvl1,
         movementSound:movementSoundlvl1,
         startItems:{
             startTitle:'',
@@ -111,7 +113,7 @@ export const jigsawMaps = {
             bkImg15lvl2,
             bkImg16lvl2,
         ],
-        backgroundSound:'',
+        backgroundSound:backgroundSoundlvl2,
         movementSound:movementSoundlvl2,
         startItems:{
             startTitle:'',
