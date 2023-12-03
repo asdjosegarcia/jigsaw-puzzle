@@ -5,6 +5,8 @@ import "@styles/components/buttons/NextButton.scss"
 import { variableContext } from "@context/context.jsx";
 const NextButton = (prop) => {
     const contexto = useContext(variableContext)
+    // contexto.soundBackground.pause()
+    // console.log()
     const levelUp = () => {
         contexto.setResetClock(true)
         contexto.setCompletedGame(false)
@@ -16,10 +18,7 @@ const NextButton = (prop) => {
             score:0,
             secondsPlayed:0,
             movementsNumber:0,
-            })
-            if(contexto.soundBackground.loop==true){ //si ya se esta reproduciendo el audio en infinito no lo reproduce de nuevo
-                contexto.soundBackground.loop = false;//reproduccion del audio en infinito
-              }
+        })
     }
 
     return (

@@ -6,13 +6,15 @@ import { variableContext } from "../../context/context.jsx";
 
 export function StartButton(props) {
   const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
+
   const StartButtonClicked=()=>{
     contexto.setTimerStatus(true)
     contexto.setGameStartedStatus(true)
-    if(contexto.soundBackground.loop==false){ //si ya se esta reproduciendo el audio en infinito no lo reproduce de nuevo
-      contexto.soundBackground.loop = true;//reproduccion del audio en infinito
-      contexto.soundBackground.play()
-    }
+/*     if(contexto.soundBackground.loop==false){ //si ya se esta reproduciendo el audio en infinito no lo reproduce de nuevo
+        contexto.soundBackground.loop = true;
+        contexto.soundBackground.play();
+
+    } */
     // contexto.setCompletedGame(false)
   }
   return (

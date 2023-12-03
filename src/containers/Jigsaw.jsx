@@ -12,29 +12,29 @@ import { variableContext } from "../context/context.jsx";
 
 
 let gameStarted = false
-let movementsNumbers =1;
+let movementsNumbers = 1;
 const Jigsaw = () => {
 
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
     // const soundMove = new Audio(moveSound)
     const soundMove = new Audio(jigsawMaps[contexto.getLevel].movementSound)
     const mapWidth = jigsawMaps[contexto.getLevel].mapWhidth;
-    const mapHeight = jigsawMaps[contexto.getLevel].mapHeight; 
+    const mapHeight = jigsawMaps[contexto.getLevel].mapHeight;
     const completeMap = [1];
     const blockStyle = {};//envia los background de los bloques
-    
-    
-    
+
+
+
     useEffect(() => {//si pasamos a un nivel nuevo
-        if(!contexto.getCompletedGame){
-            contexto.setScore({...contexto.getScore,map:contexto.getLevel})//guardamos el numero de mapa para almacenar el nivel
+        if (!contexto.getCompletedGame) {
+            contexto.setScore({ ...contexto.getScore, map: contexto.getLevel })//guardamos el numero de mapa para almacenar el nivel
             // console.log(completeMap)
-            setJigsawMap(/* [" ",3,4,5,6,7,8,2,9] *//* [...completeMap] */([...completeMap]).sort((a, b) => (b==2)? 999:  0.5 - Math.random())) //acutaliza el mapa, de lo contrario se generan solo los cuadros del mapa anterior
+            setJigsawMap(/* [" ",3,4,5,6,7,8,2,9] */[...completeMap]/* ([...completeMap]).sort((a, b) => (b==2)? 999:  0.5 - Math.random()) */) //acutaliza el mapa, de lo contrario se generan solo los cuadros del mapa anterior
             contexto.setCompletedGame(false)
             contexto.setResetClock(false)
         }
-    }, [contexto.getLevel,contexto.getCompletedGame]);
-    
+    }, [contexto.getLevel, contexto.getCompletedGame]);
+
     (function () {//funcion autoejecutable
         const mapGenerate = () => {//crea un array/mapa de numeros dependiendo de el alto y ancho seleccionado
             let totalSize = mapWidth * mapHeight;//multilicacion del ancho y alto para sacar la cantidad de bloques
@@ -94,7 +94,7 @@ const Jigsaw = () => {
         }
     }
 
- 
+
 
 
     const movimiento = (quotesPosition, blockPosition) => {//intercambia la posicion del bloque vacio por el bloque clickeado
@@ -105,7 +105,7 @@ const Jigsaw = () => {
         checkStatus(newArray)
         movementsNumbers++
         // console.log(movementsNumbers)
-        
+
     }
 
     const checkStatus = (newArray) => {//revisa si el mapa se completo durante cada movimiento
@@ -115,10 +115,9 @@ const Jigsaw = () => {
         if (isEqual) {//si es true
             setJigsawMap(completeMapQuotes)//establecemos el mapa como
             contexto.setCompletedGame(true)//establece set complete map como true, lo que le indica a react que renderize el ¡mapa superado estupida!
-            contexto.soundBackground.pause()
             contexto.setGameStartedStatus(false)
             contexto.setTimerStatus(false)
-            contexto.setScore({...contexto.getScore,movementsNumber:movementsNumbers})
+            contexto.setScore({ ...contexto.getScore, movementsNumber: movementsNumbers })
         }
     }
 
