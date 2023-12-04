@@ -27,7 +27,7 @@ const Jigsaw = () => {
     useEffect(() => {//si pasamos a un nivel nuevo
         if (!contexto.getCompletedGame) {
             contexto.setScore({ ...contexto.getScore, map: contexto.getLevel })//guardamos el numero de mapa para almacenar el nivel
-            setJigsawMap(/* [" ",3,4,5,6,7,8,2,9] */[...completeMap]/* ([...completeMap]).sort((a, b) => (b==2)? 999:  0.5 - Math.random()) */) //acutaliza el mapa, de lo contrario se generan solo los cuadros del mapa anterior
+            setJigsawMap([...completeMap]/* ([...completeMap]).sort((a, b) => 0.5 - Math.random()) */) //acutaliza el mapa, de lo contrario se generan solo los cuadros del mapa anterior
             contexto.setCompletedGame(false)
             contexto.setResetClock(false)
         }

@@ -37,6 +37,8 @@ import bkImg16lvl2 from '@img/pieces_img/lvl2/16.jpg'
 import prevImglvl2 from '@img/preview/lvl2.jpg'
 //lvl3
 import bgImglvl3 from '@img/background/lvl3.jpg'
+import movementSoundlvl3 from '@sounds/lvl3Moviment.mp3'
+import backgroundSoundlvl3 from '@sounds/background_sound_lvl3.mp3'
 import bkImg1lvl3 from '@img/pieces_img/lvl3/1.jpg'
 import bkImg2lvl3 from '@img/pieces_img/lvl3/2.jpg'
 import bkImg3lvl3 from '@img/pieces_img/lvl3/3.jpg'
@@ -147,8 +149,8 @@ export const jigsawMaps = {
             bkImg7lvl3,
             bkImg8lvl3,
             bkImg9lvl3,],
-        backgroundSound:'',
-        movementSound:'',
+        backgroundSound:backgroundSoundlvl3,
+        movementSound:movementSoundlvl3,
         startItems:{
             startTitle:'',
             startMessage:'El gato con su pelaje sedoso, donde los rayos del sol. Sus ojos, dos esmeraldas curiosas, destilan misterio y dulzura. Su ronroneo es una melodía suave que acaricia el corazón, mientras que su mirada profunda parece contar historias secretas. Este felino encantador despierta ternura con cada movimiento deslizandose entre sombras como un enigma.',
