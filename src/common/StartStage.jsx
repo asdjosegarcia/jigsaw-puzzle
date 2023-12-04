@@ -18,7 +18,7 @@ export function StartStage() {
     let startButtonview = false;//true se renderiza boton, false pos nel
     let retryReplyButtonView = false;
     let nextButtonView = false;
-    let nameInputVieew = false;
+    // let nameInputVieew = false;
 
     switch (true) {//este switch gestiona el renderizado de los bottones
         case (contexto.gameStatus.mapAttempts > 0):

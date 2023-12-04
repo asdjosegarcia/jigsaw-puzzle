@@ -28,19 +28,6 @@ export function FuncionProvider({ children }) {//creamos la funcion que encapsul
         movementsNumber: 0,
         mapWin: true,
     })
-    useEffect(() => {
-        if (!getCompletedGame && gameStartedStatus) {
-            console.log('play')
-            soundBackground.play();
-            // console.log(soundBackground)
-
-        } else {
-            // soundBackground.paused=true;
-            console.log('pause', soundBackground)
-            console.log(soundBackground)
-            soundBackground.pause();
-        }
-    }, [getCompletedGame, gameStartedStatus, /* soundBackground */])
 
 
 
@@ -51,7 +38,7 @@ export function FuncionProvider({ children }) {//creamos la funcion que encapsul
             getTimerStatus, setTimerStatus,
             getResetClock, setResetClock,
             gameStatus,
-            // soundBackground,
+            soundBackground,
             getLevel, setLevel,
             getScore, setScore
         }}>{/* value almacena lo que queremos entregar a el resto de la app */}
