@@ -63,7 +63,6 @@ export function StartStage() {
                 <div className="start-stage__background">
                     <div className="start-stage__container">
                         <div className="start-stage__scores">
-                            <>
                                 {contexto.getCompletedGame ? (
                                     <>
                                         <ScoresView /* styleProp={ScoreViewStyle} */ ></ScoresView>
@@ -72,9 +71,6 @@ export function StartStage() {
                                 ) : (
                                     <MapDescription></MapDescription>
                                 )}
-                            </>
-
-
                         </div>
                         {contexto.getCompletedGame && //si el juego se completo muestra el input para escribir el nombre
                             <div className="start-stage__input-Name-container">

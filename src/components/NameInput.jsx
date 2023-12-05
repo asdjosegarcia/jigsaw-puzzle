@@ -9,6 +9,7 @@ const NameInput = () => {
 
     const extractName = (event) => {//funcion que ejecuta el input cda vez que se escrube algo
         inputValue=event.target.value;//almacenamos el valor del inut en la vvariable
+        contexto.setScore({...contexto.getScore, user:inputValue}) //esto actualiza el valor de nombre en el userScore
       };
     
     function send(){

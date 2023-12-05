@@ -55,6 +55,7 @@ const UserScoreView = (prop) => {
                 <p>{contexto.getScore.movementsNumber}</p>
                 <h3>Score:</h3>
                 <p>{/* {newScore} */}{contexto.getScore.score}</p>
+                <h3>‎ {contexto.getScore.user}</h3>
 
             </div>
         </div>

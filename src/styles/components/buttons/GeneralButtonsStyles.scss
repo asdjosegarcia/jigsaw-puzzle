@@ -14,4 +14,10 @@
     margin: 0;
     text-align: center;
   }
-  
+  @media (max-width: 500px) {
+  .genral-button__button-text {
+    font-size: 9vw;
+  }
+
+
+  }

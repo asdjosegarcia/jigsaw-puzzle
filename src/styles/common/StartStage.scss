@@ -14,7 +14,7 @@
 .start-stage__container{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(3,auto);
+    grid-template-rows: 1fr,1fr,auto /* repeat(3,auto) */;
     background-color: /* rgba(0, 0, 0, 0.507); */ rgba(0, 0, 0, 0.51);
     border-top: outset rgba(32, 37, 39, 0.81) 10px;
     border-bottom: outset rgba(32, 37, 39, 0.81) 10px;   
@@ -30,6 +30,7 @@
     grid-row: 1/2;
     justify-content: center;
     align-content: center;
+
 }
 .start-stage__input-Name-container{
     grid-column: 2/3;
