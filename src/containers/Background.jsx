@@ -9,16 +9,16 @@ const Background = ({ children }) => {
     const contexto = useContext(variableContext)
     if (soundBackground==undefined || contexto.gameStartedStatus && contexto.getCompletedGame) { //si el sonido no tiene nada o el juego esta iniciado
         soundBackground = new Audio(jigsawMaps[contexto.getLevel].backgroundSound);
-        console.log('declaraciones')
+        // console.log('declaraciones')
     }
     if (!contexto.getCompletedGame && contexto.gameStartedStatus) {//si el juego no se completo reproduce
-        console.log('play')
+        // console.log('play')
         // if(soundBackground.paused == true){
         soundBackground.play();
         // }
         soundBackground.loop = true;
     } else {//de lo contrario pausar    
-        console.log('pause', soundBackground)
+        // console.log('pause', soundBackground)
         soundBackground.pause();
         soundBackground=undefined
     }

@@ -5,17 +5,18 @@ import { jigsawMaps } from "../utils/maps.jsx";
 
 
 export const variableContext = React.createContext();//creamos un context
-// let gameStarted;
+let gameStatus = {
+    mapAttempts: 0,
+    mapStatus: 'complete',
+    scoreId: 0
+}
+
 export function FuncionProvider({ children }) {//creamos la funcion que encapsulara los valores y luego encapsulara el componente principal de la app
     const [gameStartedStatus, setGameStartedStatus] = useState(false)//lo que vamos a compartir en toda la app
     const [getCompletedGame, setCompletedGame] = useState(false)//establece el juego como completado
     const [getTimerStatus, setTimerStatus] = useState(false)//temporizador
     const [getResetClock, setResetClock] = useState(false)
-    let gameStatus = {
-        mapAttempts: 0,
-        mapStatus: 'complete',
-        scoreId: 0
-    }
+
     const [getLevel, setLevel] = useState(1)
 
     let soundBackground = new Audio(jigsawMaps[getLevel].backgroundSound);

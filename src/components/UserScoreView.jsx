@@ -4,7 +4,7 @@ import { variableContext } from "../context/context.jsx";
 
 
 let newScore = 0;
-let postRequest = 0;
+let postRequestCounter = 0;
 let extractScore = {};
 const UserScoreView = (prop) => {
     const contexto = useContext(variableContext)//traemos los valores que cargamos en variable context, y los almacenamos en contexto
@@ -20,7 +20,7 @@ const UserScoreView = (prop) => {
         }
     }
 
-    if (contexto.getCompletedGame && contexto.getScore.secondsPlayed>0 ) {
+    if (contexto.getCompletedGame && contexto.getScore.secondsPlayed>0 && postRequestCounter==0 ) {
         // console.log(extractScore)
         async function postScore() {
             console.log('POST-request')
@@ -35,14 +35,15 @@ const UserScoreView = (prop) => {
                     const data =await  response.json();//datos que contienen la tarea
                     contexto.gameStatus={ ...contexto.gameStatus, scoreId: data.id }
                     // console.log('POST-response', data)
-                    // const id=data.id
-                    // console.log(contexto.gameStatus)
                 })
                 .catch(error => {
                     console.log(error)
                 })
         }
+        postRequestCounter++
         postScore()
+    }else{
+        postRequestCounter=0
     }
 
     return (

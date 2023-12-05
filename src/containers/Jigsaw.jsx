@@ -31,6 +31,15 @@ const Jigsaw = () => {
             contexto.setCompletedGame(false)
             contexto.setResetClock(false)
         }
+/*         const mapMix=()=>{
+            const test=[1,2,3,4,5,5,3,4,5,6,7,3,6,7,4,7,8,10]
+            test.map((item)=>{
+                movePosition(item)
+            }
+            )
+            // movePosition()
+        }
+        mapMix() */
     }, [contexto.getLevel, contexto.getCompletedGame]);
 
     (function () {//funcion autoejecutable
@@ -70,6 +79,8 @@ const Jigsaw = () => {
         return (getJigsawMap.findIndex((position) => position === "") + 1)
     }
 
+
+        
     const remap = (quotesPositionfunc, blockPosition, specialPositionRight, specialPositionLeft) => {//comprueba si el movimiento es valido
         const quotesPosition = quotesPositionfunc
         switch (true) {
@@ -132,9 +143,9 @@ const Jigsaw = () => {
     return (
         <>
             <StartStage />{/* muestra el proximamente menu, alctual boton dle juego */}
-            <div className={`win-${contexto.getCompletedGame ? 'active' : 'inactive'}  `}>{/* si getgame es true significa que el juego se completo y se renderizara  esto */}
+            {/* <div className={`win-${contexto.getCompletedGame ? 'active' : 'inactive'}  `}>si getgame es true significa que el juego se completo y se renderizara  esto */}
                 {/* <CompletedStage /> */}
-            </div>
+            {/* </div> */}
             <div style={jigsawMaps[contexto.getLevel].frameBackgroundColor} className="jigsaw-background">
                 <div className="timer">
                     <Timer />
