@@ -9,6 +9,7 @@ const NameInput = () => {
 
     const extractName = (event) => {//funcion que ejecuta el input cda vez que se escrube algo
         inputValue=event.target.value;//almacenamos el valor del inut en la vvariable
+        console.log(inputValue)
     };
     
     function send(){
@@ -38,8 +39,8 @@ const NameInput = () => {
         <div className='input-container'>
             <label htmlFor="name"></label>
             <input id='name' onChange={extractName} type="text" placeholder='Write your name' />
-            <span>📝</span>
             <button onClick={()=>send()} className=' send-name-button'>Send</button>
+            <span>📝</span>
         </div>
     )
 }
