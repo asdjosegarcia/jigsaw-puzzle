@@ -77,7 +77,7 @@ export const jigsawMaps = {
         movementSound:movementSoundlvl1,
         startItems:{
             startTitle:'',
-            startMessage:'El pingüino papúa, con su elegante abrigo negro y blanco. Su andar torpe en tierra se transforma en un ballet acuático cuando se sumerge en las frías aguas. Con ojos expresivos y un aire juguetón. Este pingüino subantártico roba corazones con su irresistible encanto y su personalidad única.',
+            startMessage:'The Papua penguin, with its elegant black and white coat. Its clumsy walk on land transforms into an aquatic ballet when it dives into the cold waters. With expressive eyes and a playful demeanor. This subantarctic penguin steals hearts with its irresistible charm and unique personality.',
             startSecondMessage:'',
         },
         finishItems: {
@@ -119,8 +119,8 @@ export const jigsawMaps = {
         movementSound:movementSoundlvl2,
         startItems:{
             startTitle:'',
-            startMessage:'El pato, un ave cautivadora con un plumaje que resplandece a la luz del sol,con un gracioso andar. Destacado por trazar huellas sobre la tierra, rizos sobre el agua y direcciones en los cielos que sugieren la promesa de un vuelo compartido hacia horizontes inexplorados.',
-            startSecondMessage:'Nota: agregamos algunos bloques extras para que explores'
+            startMessage:'The duck, a captivating bird with plumage that gleams in the sunlight, with a graceful walk. Noted for tracing tracks on land, curls on the water, and directions in the skies suggesting the promise of a shared flight towards unexplored horizons.',
+            startSecondMessage:'Note: We added some extra blocks for you to explore.'
         },
         finishItems: {
             finishTitle:'YOU WIN',
@@ -153,7 +153,7 @@ export const jigsawMaps = {
         movementSound:movementSoundlvl3,
         startItems:{
             startTitle:'',
-            startMessage:'El gato con su pelaje sedoso, donde los rayos del sol. Sus ojos, dos esmeraldas curiosas, destilan misterio y dulzura. Su ronroneo es una melodía suave que acaricia el corazón, mientras que su mirada profunda parece contar historias secretas. Este felino encantador despierta ternura con cada movimiento deslizandose entre sombras como un enigma.',
+            startMessage:"The cat with its silky fur, where the sun's rays. Its eyes, two curious emeralds, distill mystery and sweetness. Its purring is a soft melody that caresses the heart, while its deep gaze seems to tell secret stories. This charming feline awakens tenderness with every movement, sliding among shadows like an enigma.",
             startSecondMessage:''
 
         },
