@@ -82,11 +82,11 @@ const Background = ({ children }) => {
     };
 
     return (
-        (getIsBackgroundLoaded )?
-        <div style={style} className="app-background">
-            {children}
-        </div>
-        :
+        // (getIsBackgroundLoaded )?
+        // <div style={style} className="app-background">
+        //     {children}
+        // </div>
+        // :
         <Loading/>
     );
 }

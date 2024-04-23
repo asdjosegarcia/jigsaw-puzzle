@@ -1,0 +1,88 @@
+.Loading{
+    background-color: rgb(36, 36, 36);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+
+    place-items: center;
+    justify-content: center; 
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+
+
+}
+.Loading__blocks-container{
+    height: 200px;
+    width: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+
+}
+.Loading .blocks{
+    border: 2px solid rgb(44, 44, 44);
+    box-shadow:10px 10px 0px white ;
+    border-radius: 10px;
+    padding: 1px;
+}
+.Loading .block-1{
+    /* background-color: red; */
+    animation: colorChange 6s infinite steps(1) 1.5s  ;
+}
+.Loading .block-2{
+    /* background-color: limegreen; */
+    animation: colorChange 6s infinite  steps(1) 3s ;
+
+}
+.Loading .block-3{
+    /* background-color: yellow; */
+    animation: colorChange 6s infinite steps(1) 6s ;
+    
+}
+.Loading .block-4{
+    /* background-color: blue; */
+    animation: colorChange 6s infinite  steps(1) 4.5s ;
+
+}
+
+.Loading p{
+    font-size: 3rem;
+    color: white;
+    padding-left: 20px;
+    animation: loading 2.5s infinite;
+
+}
+
+@keyframes colorChange {
+    0% { background-color: red; }
+    25% { background-color: limegreen; }
+    50% { background-color: yellow; }
+    75% { background-color: #00000000; }
+    /* 100% { background-color: red; } */
+
+}
+
+@keyframes loading {
+    0% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+  }
+
+
+  @media(min-width:800px){
+    .Loading{
+        flex-direction: row;
+    
+    
+    }
+  }
