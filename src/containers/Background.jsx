@@ -1,45 +1,4 @@
-// import React, { useContext, useEffect } from 'react'
-// import { variableContext } from "@context/context.jsx";
-// import { jigsawMaps } from "../utils/maps.jsx";
 
-
-
-// let soundBackground;
-// const Background = ({ children }) => {
-//     const contexto = useContext(variableContext)
-//     if (soundBackground==undefined || contexto.gameStartedStatus && contexto.getCompletedGame) { //si el sonido no tiene nada o el juego esta iniciado
-//         soundBackground = new Audio(jigsawMaps[contexto.getLevel].backgroundSound);
-//         // console.log('declaraciones')
-//     }
-//     if (!contexto.getCompletedGame && contexto.gameStartedStatus) {//si el juego no se completo reproduce
-//         // console.log('play')
-//         // if(soundBackground.paused == true){
-//         soundBackground.play();
-//         // }
-//         soundBackground.loop = true;
-//     } else {//de lo contrario pausar    
-//         // console.log('pause', soundBackground)
-//         soundBackground.pause();
-//         soundBackground=undefined
-//     }
-
-
-//     const img = jigsawMaps[contexto.getLevel].imgBackgroundUrl
-//     const style = {
-//         backgroundImage: `url(${img})`
-//     }
-//     // console.log(style)
-//     // console.log(contexto.getLevel)
-//     return (
-//         <>
-//             <div style={style} className="app-background">
-//                 {children}
-//             </div>
-//         </>
-//     )
-// }
-
-// export default Background
 import React, { useContext, useEffect, useState } from 'react';
 import { variableContext } from "@context/context.jsx";
 import { jigsawMaps } from "../utils/maps.jsx";
@@ -51,16 +10,12 @@ const Background = ({ children }) => {
     const contexto = useContext(variableContext);
     const [getIsBackgroundLoaded, setIsBackgroundLoaded] = useState(false);
 
-    // Función para manejar la carga de la imagen de fondo
-    const handleBackgroundImageLoad = () => {
-        setIsBackgroundLoaded(true);
-    }
 
     useEffect(() => {
-        if (!getIsBackgroundLoaded) {//si background img esta cargado
-            const img = new Image();
-            img.src = jigsawMaps[contexto.getLevel].imgBackgroundUrl;
-            img.onload = handleBackgroundImageLoad;
+        if (!getIsBackgroundLoaded) {//si background img  NO esta cargado
+            const img = new Image(); //creamos una instancia de tipo Image, se utiliza en JS para manipular iamgenes
+            img.src = jigsawMaps[contexto.getLevel].imgBackgroundUrl; // llamamos a la imagen segun el nivel
+            img.onload = setIsBackgroundLoaded(true);//una vez que la imagene ste cargada establecemos el estado como true para que es muestre la web
         }
     }, [contexto.getLevel, getIsBackgroundLoaded]);
 
@@ -82,11 +37,11 @@ const Background = ({ children }) => {
     };
 
     return (
-        // (getIsBackgroundLoaded )?
-        // <div style={style} className="app-background">
-        //     {children}
-        // </div>
-        // :
+        (getIsBackgroundLoaded )?
+        <div style={style} className="app-background">
+            {children}
+        </div>
+        :
         <Loading/>
     );
 }
