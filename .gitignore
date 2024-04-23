@@ -2,3 +2,4 @@ node_modules
 resumen.txt
 .resumen.txt.swp
 .vercel
+/docs
