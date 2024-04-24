@@ -19,8 +19,8 @@ export function FuncionProvider({ children }) {//creamos la funcion que encapsul
 
     const [getLevel, setLevel] = useState(1)
 
-    let soundBackground = new Audio(jigsawMaps[getLevel].backgroundSound);
-    const [getScore, setScore] = useState({
+    let soundBackground = new Audio(jigsawMaps[getLevel].backgroundSound);//establecemos sonido de fondo
+    const [getScore, setScore] = useState({ //establecemos el score por defecto
         map: 0,
         user: 'Unknown',
         userId: 0,
@@ -29,6 +29,9 @@ export function FuncionProvider({ children }) {//creamos la funcion que encapsul
         movementsNumber: 0,
         mapWin: true,
     })
+
+    
+
 
 
 

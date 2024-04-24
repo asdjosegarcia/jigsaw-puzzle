@@ -1,10 +1,15 @@
 import React from 'react'
 import './Loading.css'
 
-const Loading = () => {
+let className=""
+const Loading = (props) => {
+  if(true){
+    className="disabledLoading"
+  }
+
   return (
-    <div className='Loading'>
-      <img src='' />
+    <div className={`Loading ${className} disabledLoading`}  >
+      {/* <img src='' /> */}
       <div className='Loading__blocks-container'>
         <div className='blocks block-1'></div>
         <div className='blocks block-2'></div>
