@@ -8,7 +8,7 @@ const Loading = (props) => {
   }
 
   return (
-    <div className={`Loading ${className} disabledLoading`}  >
+    <div className={`Loading ${className}`}  >
       {/* <img src='' /> */}
       <div className='Loading__blocks-container'>
         <div className='blocks block-1'></div>

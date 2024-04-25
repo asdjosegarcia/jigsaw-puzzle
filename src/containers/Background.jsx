@@ -5,26 +5,33 @@ import { jigsawMaps } from "../utils/maps.jsx";
 import Loading from '../templates/Loading.jsx';
 
 let soundBackground;
+let level = null;
 
 const Background = ({ children }) => {
     const contexto = useContext(variableContext);
-    const [getIsBackgroundLoaded, setIsBackgroundLoaded] = useState(false);
-    const [getLoadingAnimation,setLoadingAnimation]=useState(false)
+    const [getLoadingAnimation, setLoadingAnimation] = useState(false)
 
-
+    /////////////////////////////// gestion de la pantalla Loading
     useEffect(() => {
-        if (!getIsBackgroundLoaded) {//si background img  NO esta cargado
+        if (level !== contexto.getLevel) {//si el nivel es nuevo
+            contexto.setShowLoading(true)//establemos la animacion por que estamos en un nivel nuevo
+            setLoadingAnimation(false)//
+            level = contexto.getLevel
             const img = new Image(); //creamos una instancia de tipo Image, se utiliza en JS para manipular iamgenes
             img.src = jigsawMaps[contexto.getLevel].imgBackgroundUrl; // llamamos a la imagen segun el nivel
-            img.onload = disableLoading()
+            img.onload = ()=>{disableLoading()};//ejecuta la funcion disableLoading una vez llamada la 
+            console.log('if');
         }
-    }, [contexto.getLevel, getIsBackgroundLoaded]);
 
-    const disableLoading=()=>{
-        setLoadingAnimation(true)
-        setTimeout((disableLoading) => {setIsBackgroundLoaded(true);}, 2000);//una vez que la imagene ste cargada establecemos el estado como true para que es muestre la web
-        
+    }, [contexto.getLevel])
+    
+
+    const disableLoading = () => {
+        console.log('ave');
+        setLoadingAnimation(true)//esto va a activar la animacion de desvanecimiento del loading
+        setTimeout(() => { contexto.setShowLoading(false); }, 4000);//una vez que la imagene ste cargada establecemos el estado como false para que es muestre la web    
     }
+
 
 
     if (soundBackground === undefined || (contexto.gameStartedStatus && contexto.getCompletedGame)) {
@@ -46,13 +53,13 @@ const Background = ({ children }) => {
 
     return (
         <>
-        {!getIsBackgroundLoaded && <Loading disableLoading={getLoadingAnimation}/>}
-        
-        
-        <div style={style} className="app-background">
-            {children}
-        </div>
-        {/* : */}
+            {contexto.getShowLoading && <Loading disableLoading={getLoadingAnimation} />}
+
+
+            <div style={style} className="app-background">
+                {children}
+            </div>
+            {/* : */}
         </>
     );
 }

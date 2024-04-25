@@ -12,6 +12,7 @@ let gameStatus = {
 }
 
 export function FuncionProvider({ children }) {//creamos la funcion que encapsulara los valores y luego encapsulara el componente principal de la app
+    const [getShowLoading,setShowLoading]=useState(true)//si se muestra la pantalla de carga
     const [gameStartedStatus, setGameStartedStatus] = useState(false)//lo que vamos a compartir en toda la app
     const [getCompletedGame, setCompletedGame] = useState(false)//establece el juego como completado
     const [getTimerStatus, setTimerStatus] = useState(false)//temporizador
@@ -37,6 +38,7 @@ export function FuncionProvider({ children }) {//creamos la funcion que encapsul
 
     return (
         <variableContext.Provider value={{
+            getShowLoading,setShowLoading,
             gameStartedStatus, setGameStartedStatus,
             getCompletedGame, setCompletedGame,
             getTimerStatus, setTimerStatus,
