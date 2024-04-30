@@ -29,21 +29,23 @@ input:focus{
     border: none;
     background-color: rgba(0, 0, 0, 0.670);
 }
-span{
-    font-size: 30px;
-    margin-left: -30px;
-    padding-top: 5px;
-    margin-right: 5px;
-}
 .send-name-button{
     background-color: rgba(0, 0, 0, 0.658);
     border-radius: 5px;
-    padding: 0 15px;
+    padding: 0 10px;
     color:aliceblue;
     transition: background-color 0.3s ease-in-out 0s;
     transition: border 0.2s ease-in-out 0s;
-
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
 }
+span{
+    font-size: 30px;
+}
+
 .send-name-button:hover{
     background-color: rgba(44, 44, 44, 0.658);
     color: white;

@@ -63,6 +63,7 @@ const Jigsaw = () => {
     const blockStyleGenerate = () => {
         getJigsawMap/* completeMap */.map((positionMap, index) => {//positionMap es valor del elemnto actual de getJigsawMap, index es la piscion del elemnto actual
             if (!positionMap == "") { //si position no es ""
+                
                 blockStyle[index] = { backgroundImage: `url(${jigsawMaps[contexto.getLevel].imgblocks[positionMap]})` } //creamos un claves backgroundImg con el valor de cada imagen    
             } else {//si position es "" cargamos un elemento vacio a style
                 blockStyle[index] = {}

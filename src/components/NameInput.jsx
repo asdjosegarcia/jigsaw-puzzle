@@ -39,8 +39,9 @@ const NameInput = () => {
         <div className='input-container'>
             <label htmlFor="name"></label>
             <input id='name' onChange={extractName} type="text" placeholder='Write your name' />
-            <button onClick={()=>send()} className=' send-name-button'>Send</button>
+            <button onClick={()=>send()} className=' send-name-button'>Send
             <span>📝</span>
+            </button>
         </div>
     )
 }
