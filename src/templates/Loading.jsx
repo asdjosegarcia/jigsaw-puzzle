@@ -11,6 +11,8 @@ const Loading = (props) => {
     <div className={`Loading ${className}`}  >
       {/* <img src='' /> */}
       <div className='Loading__blocks-container'>
+        <p className="texto">Slide! :)</p>
+        
         <div className='blocks block-1'></div>
         <div className='blocks block-2'></div>
         <div className='blocks block-3'></div>
