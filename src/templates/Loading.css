@@ -14,17 +14,21 @@
 }
 
 .Loading__blocks-container {
+    padding: 60px 20px 20px 10px;
+    border-radius: 5px;
     height: 200px;
     width: 200px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    background-color: #424242;
 }
 
 .Loading .blocks {
+    background-color: white;
     border: 2px solid rgb(44, 44, 44);
-    box-shadow: 10px 10px 0px white;
-    border-radius: 10px;
+    box-shadow: 10px 10px 2px rgb(133, 133, 133);
+    border-radius: 5px;
     padding: 1px;
 }
 
@@ -61,15 +65,15 @@
 
 @keyframes colorChange {
     0% {
-        background-color: red;
+        background-color: #3f3f3f;
     }
 
     25% {
-        background-color: limegreen;
+        background-color: #969696 ;
     }
 
     50% {
-        background-color: yellow;
+        background-color: #dad8d8;
     }
 
     75% {
@@ -100,7 +104,7 @@
         opacity: 1;
     }
     60% {
-        opacity: .97;
+        opacity: 1;
     }
 
     100% {
