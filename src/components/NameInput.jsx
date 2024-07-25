@@ -16,7 +16,7 @@ const NameInput = () => {
         contexto.setScore({...contexto.getScore, user:inputValue}) //esto actualiza el valor de nombre en el userScore
         async function putName() {
             console.log('PUT-request')
-            const res = await fetch(`https://db-asdjosegarcia.vercel.app/api/jigsaw/scores/${contexto.gameStatus.scoreId}`, {
+            const res = await fetch(`https://puzzles-backend-eight.vercel.app/jigsaw-scores/${contexto.gameStatus.scoreId}`, {
                 method: "PUT",//creamos la tarea con PUT
                 body: JSON.stringify({"user":`${inputValue}`}),//enviamos datos a editar, en este caso nombre de usuario
                 headers: { //le indicamos que trabajaremos con 
