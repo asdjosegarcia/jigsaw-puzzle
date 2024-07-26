@@ -12,7 +12,7 @@ const ScoreView = (prop) => {
         if (contexto.getCompletedGame && data == undefined) {
             console.log('GET-Request')
             async function getApiScores() {
-                const res = await fetch(`https://db-asdjosegarcia.vercel.app/api/jigsaw/scores/best-ten/${contexto.getScore.map}`)
+                const res = await fetch(`https://puzzles-backend-eight.vercel.app/jigsaw-scores/best-scores/${contexto.getScore.map}`)
                 /* const */ data = (await res.json())
                 // console.log(await data)
                 setData(await data)
