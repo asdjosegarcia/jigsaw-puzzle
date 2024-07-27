@@ -21,10 +21,10 @@ const UserScoreView = (prop) => {
     }
 
     if (contexto.getCompletedGame && contexto.getScore.secondsPlayed>0 && postRequestCounter==0 ) {
-        // console.log(extractScore)
+        // console.log(extractScore)   
         async function postScore() {
-            console.log('POST-request')
-            const res = await fetch("https://db-asdjosegarcia.vercel.app/api/jigsaw/scores/new", {
+            // console.log('POST-request')
+            const res = await fetch("https://puzzles-backend-eight.vercel.app/jigsaw-scores", {
                 method: "POST",//creamos la tarea con POST
                 body: JSON.stringify(extractScore),//enviamos como datos para la nueva tarea un post con titulo y descripcion
                 headers: { //le indicamos que trabajaremos con 
@@ -38,6 +38,7 @@ const UserScoreView = (prop) => {
                 })
                 .catch(error => {
                     console.log(error)
+                    // console.log('POST-error')
                 })
         }
         postRequestCounter++

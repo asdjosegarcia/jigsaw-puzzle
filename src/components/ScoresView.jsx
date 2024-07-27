@@ -10,7 +10,7 @@ const ScoreView = (prop) => {
     ])
     useEffect(() => {
         if (contexto.getCompletedGame && data == undefined) {
-            console.log('GET-Request')
+            // console.log('GET-Request')
             async function getApiScores() {
                 const res = await fetch(`https://puzzles-backend-eight.vercel.app/jigsaw-scores/best-scores/${contexto.getScore.map}`)
                 /* const */ data = (await res.json())

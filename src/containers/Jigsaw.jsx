@@ -56,7 +56,8 @@ const Jigsaw = () => {
     const style = { gridTemplateColumns: "repeat(" + mapWidth + ",auto)" } //le enviamos la cantidad de grillas que tendra el juego para almacenar los cuadros
 
 
-    const [getJigsawMap, setJigsawMap] = useState( // ([...completeMap]).sort((a, b) =>   0.5 - Math.random())
+    const [getJigsawMap, setJigsawMap] = useState( 
+        // ([...completeMap]).sort((a, b) =>   0.5 - Math.random())
         //extrae los valores de complete map y los mezcla de forma aleatoria
         [...completeMap],
     )
