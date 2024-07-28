@@ -20,14 +20,14 @@ const Background = ({ children }) => {
             const img = new Image(); //creamos una instancia de tipo Image, se utiliza en JS para manipular iamgenes
             img.src = jigsawMaps[contexto.getLevel].imgBackgroundUrl; // llamamos a la imagen segun el nivel
             img.onload = ()=>{disableLoading()};//ejecuta la funcion disableLoading una vez llamada la 
-            console.log('if');
+            // console.log('if');
         }
 
     }, [contexto.getLevel])
     
 
     const disableLoading = () => {
-        console.log('ave');
+        // console.log('ave');
         setLoadingAnimation(true)//esto va a activar la animacion de desvanecimiento del loading
         setTimeout(() => { contexto.setShowLoading(false); }, 4000);//una vez que la imagene ste cargada establecemos el estado como false para que es muestre la web    
     }
